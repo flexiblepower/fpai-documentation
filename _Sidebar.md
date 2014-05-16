@@ -3,3 +3,4 @@
 - Developer's Guide
   - [[Introduction|Introduction]]
   - [[Getting started|GettingStarted]]
+  - [[Frequently asked questions|FAQ]]
