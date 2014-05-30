@@ -10,16 +10,16 @@ The package provides a set of [SI-units](http://en.wikipedia.org/wiki/Internatio
 import static javax.measure.unit.SI.*;
 import static javax.measure.unit.NonSI.*;
 
-// Create a measureable which stores an amount of power
+// Create a measurable which stores an amount of power
 Measurable<Power> power = Measure.valueOf(50, WATT);
 
-// Create a measureable which stores a duration
+// Create a measurable which stores a duration
 Measurable<Duration> hour = Measure.valueOf(1, HOUR);
 
-// Compare two measureables. This should result in true.
+// Compare two measurables. This should result in true.
 boolean res = Measure.valueOf(1000, WATT).equals(Measure.valueOf(1, KILO(WATT)))
 
-// Compare two measureables. This sholud result in a value < 0
+// Compare two measurables. This sholud result in a value < 0
 int compare = Measure.valueOf(1, JOULE).compareTo(Measure.valueOf(1, KWH));
 
 // Get the value of a measurable as a double. This should result in 3600.0.
@@ -35,7 +35,7 @@ Date now = new Date();
 
 Date oneHourInTheFuture = TimeUtil.add(now, Measure.valueOf(1, HOUR));
 Date oneHourInThePast = TimeUtil.subtract(now, Measure.valueOf(1, HOUR));
-Measureable<Duration> twoHours = TimeUtil.difference(oneHourInThePast, oneHourInTheFuture);
+Measurable<Duration> twoHours = TimeUtil.difference(oneHourInThePast, oneHourInTheFuture);
 ```
 
 **Note:** as you will read in the TimeSource section we don't recommand using `new Date()` in the FPAI. This is just for demonstration purposes.
