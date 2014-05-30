@@ -31,7 +31,23 @@ For you as developer it is important to know how the infrastructure works:
 
 A dashboard can show controls and information about the current state of your appliances in the form of Widgets. Each Widget shows information for an appliance. It is possible to have multiple Widgets per appliance. When run the Dashboard is currently shown at http://localhost:8080/
 
+![](dashboard.png)
+
+**Figue: Example of the dashboard. The main page of the dashboard contains widgets.**
 
 ## Components and widgets
+New functionality can be installed at run-time it the form of *Apps*. An App can for example contain drivers or smart grid applications. Apps consist of one or more OSGi components. We will discuss OSGi components later on in more detail. What you need to remember for now is that the a component can have multiple instances (just like a Java class can have multiple instances called objects) and that they can be configured.
 
-![](component_overview.png)
+Let's consider an example configuration to demonstrate how these components can interact. In this example the FPAI is used to control a Miele refrigerator and a Miele dishwasher. We have also added the PV panel simulation to make it a bit more interesting. The PowerMatcher has been added to control these three appliances.
+
+[![](component_overview.png)](https://raw.githubusercontent.com/wiki/flexiblepower/fpai-core/component_overview.png)
+
+**Figure: Example FPAI configuration. Green blocks represent OSGi components. Click [here](https://raw.githubusercontent.com/wiki/flexiblepower/fpai-core/component_overview.png) for the full version.**
+
+The image above shows the example configuration. All the green blocks represent OSGi components. The first line in the green blocks state the name of the component. Under the name is the configuration of the component.
+
+Below the *Resource Abstract Layer *(RAL) we can see all the device specific components. We see that the *Miele App* provides two types of Resource Managers, two types of Resource Drivers and a Protocol Driver. The PV Panel Simulation does not have a Protocol Driver, since the simulation does not have to communicate with a device. The Pv Pavel Simulation is connected with a generic Resource Manager for uncontrolled appliances. Above the Resource Abstract Layer we can see the PowerMatcher App, which communicates with the three Resource Managers.
+
+When you look at the the configuration of all the components you will notice that Resource Managers and Resource Drivers have a *ResourceId* property. This configuration parameter indicates which device is controlled by the components. The FPAI will automatically connect Resource Drivers and Resource Managers with the same ResourceId's. The PowerMatcher component has a configuration parameter called *ResourceIds*. This parameter contains a list of ResourceId's. The FPAI will automatically connect Resource Managers with an Energy App if the ResourceId's match.
+
+You will also notice that there are several widgets. Every component in the system can provide a widget which is shown in the main page of the dashboard.
