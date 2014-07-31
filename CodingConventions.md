@@ -43,8 +43,13 @@ class Example {
     /*
      * Some non-javadoc comment
      */
-    void foo(int a, int b, int c, int d, int e, int f) {
-        switch (a) {
+    void foo(int parameter1, 
+             int parameter2,
+             int parameter3,
+             int parameter4,
+             int parameter5,
+             int parameter6) {
+        switch (parameter1) {
         case 0:
             Other.doFoo();
             break;
@@ -54,9 +59,13 @@ class Example {
         }
     }
 
-    void bar(List v) {
+    void bar(List<Integer> v) {
         for (int i = 0; i < 10; i++) {
-            v.add(new Integer(i));
+            if (i % 2 == 0) {
+                v.add(i);
+            } else {
+                v.add(-i);
+            }
         }
     }
 }
