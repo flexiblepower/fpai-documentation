@@ -59,8 +59,8 @@ class Example {
         }
     }
 
-    void bar(List<Integer> v) {
-        for (int i = 0; i < 10; i++) {
+    void bar(List<Integer> v, int max) {
+        for (int i = 0; i < max; i++) {
             if (i % 2 == 0) {
                 v.add(i);
             } else {
