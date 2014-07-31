@@ -19,3 +19,55 @@ The coding conventions for the FPAI projects are captured in the project setting
 * Block statements should always use brackets, even when it is a single statement.
 * Make private variable in classes final as much as possible. For data object, prefer to make them [immutable](http://en.wikipedia.org/wiki/Immutable_object#Java).
 * For member access, the `this.` qualifier should only be used when necessary.
+
+## Example code
+
+Below is an piece of dummy code to show what the effect of these rules are:
+
+```java
+/**
+ * Javadoc comments with some <code>HTML</code> tags.
+ * <ul>
+ * <li>And</li>
+ * <li>a</li>
+ * <li>list</li>
+ * </ul>
+ */
+class Example {
+    int[] myArray = { 1, 2, 3, 4, 5, 6 };
+    int theInt = 1;
+
+    String someString = "Hello";
+    double aDouble = 3.0;
+
+    /*
+     * Some non-javadoc comment
+     */
+    void foo(int a, int b, int c, int d, int e, int f) {
+        switch (a) {
+        case 0:
+            Other.doFoo();
+            break;
+        default:
+            // Single line comment
+            Other.doBaz();
+        }
+    }
+
+    void bar(List v) {
+        for (int i = 0; i < 10; i++) {
+            v.add(new Integer(i));
+        }
+    }
+}
+
+enum MyEnum {
+    UNDEFINED(0) {
+        void foo() {
+        }
+    }
+}
+
+@interface MyAnnotation {
+    int count() default 1;
+}
