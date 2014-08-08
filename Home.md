@@ -1,4 +1,5 @@
 # FlexiblePower Application Infrastructure
+The FlexiblePower Application Infrastructure (FPAI) aims to create an interoperable platform that is able to connect to a variety of appliances and support a host of DSM approaches. This way the EMS hardware does not need to be changed when a consumers switches from one service to another. At the same time the FlexiblePower Application Infrastructure makes it easier for service providers to introduce new services, since they do not have to provide the EMS hardware to their consumers to go with it.
 
 ## Introduction
 
