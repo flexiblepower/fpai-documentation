@@ -33,7 +33,11 @@ A dashboard can show controls and information about the current state of your ap
 
 ![](dashboard.png)
 
-**Figue: Example of the dashboard. The main page of the dashboard contains widgets.**
+**Figure: Example of the dashboard. The main page of the dashboard contains widgets.**
+
+[Detailed Functional Design](FAN - FlexiblePower Application Infrastructure - Detailed Functional Design v1.0.pdf)
+
+[High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
 
 ## Components and widgets
 New functionality can be installed at run-time it the form of *Apps*. An App can for example contain drivers or smart grid applications. Apps consist of one or more OSGi components. We will discuss OSGi components later on in more detail. What you need to remember for now is that the a component can have multiple instances (just like a Java class can have multiple instances called objects) and that they can be configured.
