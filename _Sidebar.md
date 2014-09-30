@@ -2,6 +2,7 @@
 - [[Release Notes|ReleaseNotes]]
 - [[Release Policy|ReleasePolicy]]
 - [[Coding Conventions|CodingConventions]]
+- [[Continuous Integration|ContinuousIntegration]]
 - Developer's Guide
   - [[1. Architecture|Architecture]]
   - [[2. Setting up your IDE|SettingUpYourIDE]]
