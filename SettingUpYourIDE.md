@@ -48,10 +48,19 @@ git clone https://github.com/flexiblepower/fpai-examples.git
 
 Git will create a directory named `git-examples` inside the `C:\Code\FPAI` directory with the source code.
 
+In the FPAI projects we use [git submodules](http://git-scm.com/docs/git-submodule) to share some files with several repositories. In order to be able to use these files you have to execute two more commands:
+
+```
+git submodule init
+git submodule update
+```
+
+It might take some time to download these additional files. When these task are done you should also have a `cnf.shared` directory in your repository.
+
 ## Starting Eclipse
 Now it is time to start Eclipes. The first thing Eclipse asks is the location of your workspace. For the FPAI, each repository is also a workspace. So selecte the directory you just checked out (`C:\Code\FPAI\fpai-examples`).
 
-When you start Eclipse for the first time it will show you the Welcome page. Just close it by clicking the cross on the top.
+When you start Eclipse for the first time it will show you the Welcome page. You can close it.
 
 ## Installing Bndtools
 The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and than to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.

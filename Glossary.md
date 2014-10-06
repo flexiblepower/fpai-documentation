@@ -13,4 +13,4 @@ A component is a special type of object which (among other things) can be config
 An application for the FPAI which can utilize energy flexibility offered by smart appliances. For more information see [[Energy App|EnergyApp]].
 
 ###FPAI App
-An App is a piece of software which runs on top of the FPAI. For more information see [[Architecture|Architecture]].
+An App is a piece of software which runs on top of the FPAI. An App can contain multiple FPAI components, such as an Energy App, Resource Manager, Resource Driver or Protorol Driver. For more information see [[Architecture|Architecture]].
