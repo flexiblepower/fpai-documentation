@@ -40,6 +40,8 @@ Measurable<Duration> twoHours = TimeUtil.difference(oneHourInThePast, oneHourInT
 
 **Note:** as you will read in the TimeSource section we don't recommand using `new Date()` in the FPAI. This is just for demonstration purposes.
 
+## Commodity
+
 ## ConstraintList
 
 ## EnergyProfile

@@ -3,6 +3,8 @@ OSGi (Open Service Gateway initiative) is a specification for a service platform
 
 The FPAI runs on top of the Apache Felix OSGi framework. For developing we recommend using the Apache Felix Web Console. For development we use Eclipse in combination with Bndtools.
 
+## Your workspace
+
 ## Running the FPAI
 
 ## The Apache Felix Web Console

@@ -48,9 +48,10 @@ git clone https://github.com/flexiblepower/fpai-examples.git
 
 Git will create a directory named `git-examples` inside the `C:\Code\FPAI` directory with the source code.
 
-In the FPAI projects we use [git submodules](http://git-scm.com/docs/git-submodule) to share some files with several repositories. In order to be able to use these files you have to execute two more commands:
+In the FPAI projects we use [git submodules](http://git-scm.com/docs/git-submodule) to share some files with several repositories. In order to be able to use these files you have first have to go inside your repository directory, and then execute two commands for initializing the submodule:
 
 ```
+cd fpai-examples
 git submodule init
 git submodule update
 ```
