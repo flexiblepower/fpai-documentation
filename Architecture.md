@@ -55,32 +55,32 @@ You will also notice that there are several widgets. Every component in the syst
 ## Bundles in the fpai-core
 In the [fpai-core repository](https://github.com/flexiblepower/fpai-core) you will find all the bundles for the FPAI platform. This repository is really the core of the FPAI; it contains no Apps, such as device drivers, protocol drivers or smart grid applications.
 
-**flexiblepower.api**
-⋅⋅⋅This bundle contains all interfaces and classes for data objects for the FPAI. This bundle is the FPAI specification, without any functionality.
+**flexiblepower.api**  
+This bundle contains all interfaces and classes for data objects for the FPAI. This bundle is the FPAI specification, without any functionality.
 
-**flexiblepower.api.ext**
-⋅⋅⋅This bundle contains interfaces and classes for data objects which are not part of the FPAI standard, but are commonly used by energy applications.
+**flexiblepower.api.ext**  
+This bundle contains interfaces and classes for data objects which are not part of the FPAI standard, but are commonly used by energy applications.
 
-**flexiblepower.api.efi**
-⋅⋅⋅This bundle contains interfaces and classes for data objects for the Energy Flexibility Interface (EFI).
+**flexiblepower.api.efi**  
+This bundle contains interfaces and classes for data objects for the Energy Flexibility Interface (EFI).
 
-**flexiblepower.api.efi.utils**
-⋅⋅⋅This bundle contains utility classes which help Energy Apps interpret messages from the Energy Flexibility Interface (EFI).
+**flexiblepower.api.efi.utils**  
+This bundle contains utility classes which help Energy Apps interpret messages from the Energy Flexibility Interface (EFI).
 
-**flexiblepower.runtime**
-⋅⋅⋅This bundle contains the runtime of the FPAI. Notice that there are separate runtimes for real deplayments and simulations. The simulation runtime is useful for speeding up simulations.
+**flexiblepower.runtime**  
+This bundle contains the runtime of the FPAI. Notice that there are separate runtimes for real deplayments and simulations. The simulation runtime is useful for speeding up simulations.
 
-**flexiblepower.runtime.test**
-⋅⋅⋅This bundle contains unit tests and integration tests for the FPAI runtime. 
+**flexiblepower.runtime.test**  
+This bundle contains unit tests and integration tests for the FPAI runtime. 
 
-**flexiblepower.ui**
-⋅⋅⋅This bundle contains the end user interface (the dashboard). 
+**flexiblepower.ui**  
+This bundle contains the end user interface (the dashboard). 
 
-**flexiblepower.ui.resourceinfo**
-⋅⋅⋅This bundle adds a widget to the dashboards which displays information on appliances connected to the FPAI.
+**flexiblepower.ui.resourceinfo**  
+This bundle adds a widget to the dashboards which displays information on appliances connected to the FPAI.
 
-**flexiblepower.felix.webconsole.plugins**
-⋅⋅⋅This bundle contains some plugins for the Felix Web console. This is a useful tool for FPAI developers.
+**flexiblepower.felix.webconsole.plugins**  
+This bundle contains some plugins for the Felix Web console. This is a useful tool for FPAI developers.
 
 
 ## Further reading
