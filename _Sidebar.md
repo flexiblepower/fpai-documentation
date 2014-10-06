@@ -8,7 +8,7 @@
   - [[2. Setting up your IDE|SettingUpYourIDE]]
   - [[3. Using the workspace|Workspace]]
   - [[4. Common classes and interfaces|CommonClasses]]
-  - [[5. ControlSpaces|ControlSpaces]]
+  - [[5. Energy Flexiblity Interface|EFI]]
   - [[6. Resource Driver|ResourceDriver]]
   - [[7. Resource Manager|ResourceManager]]
   - [[8. Energy App|EnergyApp]]

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Over the years a lot of different *Demand Side Management* (DSM) approaches have been developed. Unfortunately these DMS approaches are not interoperable. A similar issue can be identified on the appliance level. Appliances provide the flexibility that is being exploited by DSM. To begin with there a lot of different appliances (washing machines, Combined Heat Power Systems, PV panels, fridges, etc.). They also use different protocols for communication (Zigbee, Z-wave, WiFi, PLC, etc.).
+Over the years a lot of different *Demand Side Management* (DSM) approaches have been developed. Unfortunately these DSM approaches are not interoperable. A similar issue can be identified on the appliance level. Appliances provide the flexibility that is being exploited by DSM. To begin with there a lot of different appliances (washing machines, Combined Heat Power Systems, PV panels, fridges, etc.). They also use different protocols for communication (Zigbee, Z-wave, WiFi, PLC, etc.).
 
 All this variety on both the DSM and appliance level presents *Energy Management Systems* (EMS) with a big challenge. This challenge is depicted below.
 
@@ -10,7 +10,7 @@ All this variety on both the DSM and appliance level presents *Energy Management
 
 Nowadays most EMS’es are tightly coupled to a particalar DSM approach. This results in a lock-in for consumers. A switch to another DSM approach/service almost always requires the installation of another EMS (hardware box).
 
-The FlexiblePower Application Infrastructure (FPAI) aims to create an interoperable platform that is able to connect to a variety of appliances and support a host of DSM approaches. This way the EMS hardware does not need to be changed when a consumers switches from one service to another. At the same time the FlexiblePower Application Infrastructure makes it easier for service providers to introduce new services, since they do not have to provide the EMS hardware to their consumers to go with it.
+The *FlexiblePower Application Infrastructure* (FPAI) aims to create an interoperable platform that is able to connect to a variety of appliances and support a host of DSM approaches. This way the EMS hardware does not need to be changed when a consumers switches from one service to another. At the same time the FlexiblePower Application Infrastructure makes it easier for service providers to introduce new services, since they do not have to provide the EMS hardware to their consumers to go with it.
 
 ## High-level design
 ![](hourglass.png)
@@ -29,15 +29,11 @@ For you as developer it is important to know how the infrastructure works:
 * A Resource Manager creates Control Parameters based on this, which define when the appliance should start. The Control Parameters are sent to the Resource Driver.
 * The Resource Driver actually starts the appliance.
 
-A dashboard can show controls and information about the current state of your appliances in the form of Widgets. Each Widget shows information for an appliance. It is possible to have multiple Widgets per appliance. When run the Dashboard is currently shown at http://localhost:8080/
+A dashboard can show controls and information about the current state of your appliances in the form of Widgets. Each Widget shows information for an appliance. It is possible to have multiple Widgets per appliance. When run the Dashboard is currently shown at [http://localhost:8080](http://localhost:8080).
 
 ![](dashboard.png)
 
 **Figure: Example of the dashboard. The main page of the dashboard contains widgets.**
-
-[Detailed Functional Design](FAN - FlexiblePower Application Infrastructure - Detailed Functional Design v1.0.pdf)
-
-[High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
 
 ## Components and widgets
 New functionality can be installed at run-time it the form of *Apps*. An App can for example contain drivers or smart grid applications. Apps consist of one or more OSGi components. We will discuss OSGi components later on in more detail. What you need to remember for now is that the a component can have multiple instances (just like a Java class can have multiple instances called objects) and that they can be configured.
@@ -57,6 +53,40 @@ When you look at the the configuration of all the components you will notice tha
 You will also notice that there are several widgets. Every component in the system can provide a widget which is shown in the main page of the dashboard.
 
 ## Bundles in the fpai-core
+In the [fpai-core repository](https://github.com/flexiblepower/fpai-core) you will find all the bundles for the FPAI platform. This repository is really the core of the FPAI; it contains no Apps, such as device drivers, protocol drivers or smart grid applications.
+
+**flexiblepower.api**
+⋅⋅⋅This bundle contains all interfaces and classes for data objects for the FPAI. This bundle is the FPAI specification, without any functionality.
+
+**flexiblepower.api.ext**
+⋅⋅⋅This bundle contains interfaces and classes for data objects which are not part of the FPAI standard, but are commonly used by energy applications.
+
+**flexiblepower.api.efi**
+⋅⋅⋅This bundle contains interfaces and classes for data objects for the Energy Flexibility Interface (EFI).
+
+**flexiblepower.api.efi.utils**
+⋅⋅⋅This bundle contains utility classes which help Energy Apps interpret messages from the Energy Flexibility Interface (EFI).
+
+**flexiblepower.runtime**
+⋅⋅⋅This bundle contains the runtime of the FPAI. Notice that there are separate runtimes for real deplayments and simulations. The simulation runtime is useful for speeding up simulations.
+
+**flexiblepower.runtime.test**
+⋅⋅⋅This bundle contains unit tests and integration tests for the FPAI runtime. 
+
+**flexiblepower.ui**
+⋅⋅⋅This bundle contains the end user interface (the dashboard). 
+
+**flexiblepower.ui.resourceinfo**
+⋅⋅⋅This bundle adds a widget to the dashboards which displays information on appliances connected to the FPAI.
+
+**flexiblepower.felix.webconsole.plugins**
+⋅⋅⋅This bundle contains some plugins for the Felix Web console. This is a useful tool for FPAI developers.
+
+
+## Further reading
+[Detailed Functional Design](FAN - FlexiblePower Application Infrastructure - Detailed Functional Design v1.0.pdf)
+
+[High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
 
 ## Next
 In [[2. Setting up your IDE|SettingUpYourIDE]] you will learn how to set up your development environment.
