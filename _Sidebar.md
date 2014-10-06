@@ -8,7 +8,7 @@
   - [[2. Setting up your IDE|SettingUpYourIDE]]
   - [[3. OSGi, Bndtools and the Felix Web Console|OSGi]]
   - [[4. Common classes and interfaces|CommonClasses]]
-  - [[5. Connections|CommonClasses]]
+  - [[5. Connections|Connections]]
   - [[6. Energy Flexiblity Interface|EFI]]
   - [[7. Resource Driver|ResourceDriver]]
   - [[8. Resource Manager|ResourceManager]]

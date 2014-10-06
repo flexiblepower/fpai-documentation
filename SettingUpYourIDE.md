@@ -23,14 +23,17 @@ The latest version of Eclipse can be downloaded from [http://www.eclipse.org/dow
 For more information see [http://www.eclipse.org](http://www.eclipse.org "Eclipse website").
 
 ## Installing Git
-There are several ways can use Git. You could use the GitHub Desktop Client ([Windows](https://windows.github.com) or [Mac OS X](https://mac.github.com)), Git from command line (Git Bash) or the [Eclipse EGit plug-in](http://www.eclipse.org/egit/). In this tutorial we will assume you use Git Bash. GitHub provides an [excellent guide](https://help.github.com/articles/set-up-git) on installing and using it.
+There are several ways can use Git. You could use the GitHub Desktop Client ([Windows](https://windows.github.com) or [Mac OS X](https://mac.github.com)), Git from command line (Git Bash) or the [Eclipse EGit plug-in](http://www.eclipse.org/egit/). In this tutorial we will assume you use Git Bash. You can download it for your platform on [http://git-scm.com/downloads](http://git-scm.com/downloads) (or use the package manager for your Operating System).
 
 For more details on using Git we recommend reading the [Git Pro book](http://git-scm.com/book). You can read it online for free.
 
 ## Checking out the example repository
-
+TODO
 
 ## Installing Bndtools
+
+TODO
+
 The Eclipse plugin for bnd, called bndtools, can be obtained from the Eclipse Marketplace (Help →
 Eclipse Marketplace…), see Figure 2. During installation you will get a warning complaining about
 unsigned content. You may ignore that warning. After installation, restart Eclipse.
