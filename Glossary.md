@@ -1,7 +1,7 @@
 # Glossary
 
 ###App
-See [FPAI App](#FPAI App)
+See [FPAI App](#fpai-app)
 
 ###Bndtools
 An Eclipse plug-in which makes working with OSGi easier. For more information see [[Setting up your IDE|SettingUpYourIDE]].
