@@ -557,7 +557,7 @@ public class BatteryWidget implements Widget {
 
 The widget itself is a html file, which must be called `index.html`. It loads two style sheets, own default widget style sheet and a specific style sheet for this widget. After specifying a number of javascript libraries, the body is defined as a class called “widget”. In the battery simulation 8 pictures are created showing different state of charges of the battery, default the empty one is loaded. After that the 3 labels are defined, which will be update via javascript.
 
-```java
+```html
 <!doctype html>
 <html>
 <head>
@@ -581,7 +581,7 @@ The widget itself is a html file, which must be called `index.html`. It loads tw
 
 The javascript runs when the window is loaded. It creates a new widget which will call every 1000ms the update function on the java widget class. The data the this method produces is serialized and passed as data to the function. This function updates the three labels and adapts the state of charge picture to the new soc of the battery.
 
-```java
+```javascript
 $(window).load(function() {
 	w = new widget("update", 1000, function(data) {
 		$("#loading").detach();
