@@ -2,8 +2,7 @@
 
 Each component that is developed within FPAI can use a widget to provide insight to and receive input from the user. The example below explains how the resource driver for the washing machine can be extended with a widget.
 
-* Go to the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` project.
-* Create a `WashingMachineWidget` class in the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` package.
+Go to the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` project. Create a `WashingMachineWidget` class in the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` package.
 
 ```java
 public class WashingMachineWidget implements Widget {
