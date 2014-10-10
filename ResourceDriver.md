@@ -617,17 +617,17 @@ In order to run the washing machine driver within eclipse, the following steps a
 
 * Open the `demo_all_resources.bndrun` file in the `cnf` project.
 
-![](RunRequirementsDemo.png)
+![](run_requirements_demo.png)
 
 Make sure that the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` is part of the “Run Requirements”. Click the “Resolve” button to check whether additional resources are needed and then press “Finish”. Save the `demo_all_resources.bndrun` file and click on the “Run OSGi” button. This will start OSGI.
 
 * Point your web browser at “http://localhost:8080” to see the Dashboard of FPAI.
 * Open another tab and go to “http://localhost:8080/system/console/configMgr”. Should you need to authenticate yourself use “admin”, “admin”.
 
-![](FelixConfigMgr.png)
+![](felix_config_mgr.png)
 
 Press the “+” button next to “Washing Machine Driver” (this is the name that was provided in the `@Meta.OCD` annotation earlier).
 
-![](FelixWashingMachine.png)
+![](felix_washing_machine.png)
 
 This opens the configuration for the “Washing Machine Driver”, which contains only one configuration item: Resource id. Keep the default value and press the “Save” button. As soon as the configuration is saved a new Washing Machine Driver component will be started. In the eclipse console logging rules from `WashingMachineDriverImpl` will start to appear. This component is now running.
