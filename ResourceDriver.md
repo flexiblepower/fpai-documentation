@@ -343,7 +343,7 @@ valueOf(configuration.selfDischargePower(), WATT);
 
 As the activate, the modify copies the configuration to its internal variables and (re)publishes the state of the battery. 
 
-```
+```java
 	/**
 	 * This method gets called when the service is deactivated
 	 */
