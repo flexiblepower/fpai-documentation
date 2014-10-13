@@ -130,7 +130,7 @@ Export-Package:  \
 	org.flexiblepower.simulation.battery
 ```
 
-* Create a new class (called `BatterySimulation`) that implements the `BatteryDriver` interface.
+Create a new class (called `BatterySimulation`) that implements the `BatteryDriver` interface.
 
 ```java
 /**
@@ -179,51 +179,51 @@ The Config interface features a number of configuration methods which influence 
 The next fragment shows the basic private members of the `BatterySimulation` class.
 
 ```java
-	/** Reference to the 'scheduling' of this object */
-	private ScheduledFuture<?> scheduledFuture;
-	/** Reference to shared scheduler */
-	private ScheduledExecutorService scheduler;
-	/** Reference to the registration as observationProvider */
-	private ServiceRegistration<Widget> widgetRegistration;
-	/** Reference to the {@link TimeService} */
-	private TimeService timeService;
-	/** Configuration of this object */
-	private Config config;
+/** Reference to the 'scheduling' of this object */
+private ScheduledFuture<?> scheduledFuture;
+/** Reference to shared scheduler */
+private ScheduledExecutorService scheduler;
+/** Reference to the registration as observationProvider */
+private ServiceRegistration<Widget> widgetRegistration;
+/** Reference to the {@link TimeService} */
+private TimeService timeService;
+/** Configuration of this object */
+private Config config;
 ```
 
 These variables provide references to services that are offered by the platform. Their usage will be clear from the explanation of the methods of this class.
 
 ```java
-	/**
-	 * Sets the TimeService. The TimeService is used to determine the current
-	 * time.
-	 * 
-	 * This method is called before the Activate method
-	 * 
-	 * @param timeService
-	 */
-	@Reference(optional = false)
-	public void setTimeService(TimeService timeService) {
-		this.timeService = timeService;
-	}
+/**
+ * Sets the TimeService. The TimeService is used to determine the current
+ * time.
+ * 
+ * This method is called before the Activate method
+ * 
+ * @param timeService
+ */
+@Reference(optional = false)
+public void setTimeService(TimeService timeService) {
+	this.timeService = timeService;
+}
 ```
 
 This methods adds a reference to the `TimeService` that is offered by the platform. Any component that needs to work with time has to have a reference to this service. Please note the `@Reference(optional = false)` annotation.
 
 ```java
-	/**
-	 * Sets a reference to a ScheduledExecutorService. This service can be used
-	 * to schedule tasks which implement the Runnable interface. Using a central
-	 * scheduler is more efficient than starting your own thread.
-	 * 
-	 * This method is called before the Activate method
-	 * 
-	 * @param timeService
-	 */
-	@Reference(optional = false)
-	public void setSchedulerService(ScheduledExecutorService schedulerService) {
-		this.scheduler = schedulerService;
-	}
+/**
+ * Sets a reference to a ScheduledExecutorService. This service can be used
+ * to schedule tasks which implement the Runnable interface. Using a central
+ * scheduler is more efficient than starting your own thread.
+ * 
+ * This method is called before the Activate method
+ * 
+ * @param timeService
+ */
+@Reference(optional = false)
+public void setSchedulerService(ScheduledExecutorService schedulerService) {
+	this.scheduler = schedulerService;
+}
 ```
 
 As is explained in the comment section of the code snippet this reference is used to schedule tasks on the FPAI platform.
@@ -231,33 +231,33 @@ As is explained in the comment section of the code snippet this reference is use
 The next fragment shows the specific private members of the `BatterySimulation` class.
 
 ```java
-    private static final Logger log = 
-      LoggerFactory.getLogger(BatterySimulation.class);
-    private Measurable<Power> dischargeSpeedInWatt; 
-    private Measurable<Power> chargeSpeedInWatt; 
-    private Measurable<Power> selfDischargeSpeedInWatt; 
-    private Measurable<Energy> totalCapacityInKWh; 
-    private Measurable<Duration> minTimeOn; 
-    private Measurable<Duration> minTimeOff; 
+private static final Logger log = 
+    LoggerFactory.getLogger(BatterySimulation.class);
+private Measurable<Power> dischargeSpeedInWatt; 
+private Measurable<Power> chargeSpeedInWatt; 
+private Measurable<Power> selfDischargeSpeedInWatt; 
+private Measurable<Energy> totalCapacityInKWh; 
+private Measurable<Duration> minTimeOn; 
+private Measurable<Duration> minTimeOff; 
 
-    private BatteryMode mode;
-    private Date lastUpdatedTime;
-    private double stateOfCharge;
-    private BatteryWidget widget;
+private BatteryMode mode;
+private Date lastUpdatedTime;
+private double stateOfCharge;
+private BatteryWidget widget;
 ```
 
 The `activate` method initializes this component and will get called after the Reference methods that were described earlier. This method is annotated with an `@Activate` notation.
 
 ```java
-	/**
-	 * This method gets called after this component gets a configuration and
-	 * after the methods with the Reference annotation are called
-	 * 
-	 * @param context
-	 *            OSGi BundleContext-object
-	 * @param properties
-	 *            Map containing the configuration of this component
-	 */
+/**
+ * This method gets called after this component gets a configuration and
+ * after the methods with the Reference annotation are called
+ * 
+ * @param context
+ *            OSGi BundleContext-object
+ * @param properties
+ *            Map containing the configuration of this component
+ */
 @Activate
  	public void activate(BundleContext context, Map<String, Object> properties) 
 throws Exception 
@@ -308,14 +308,14 @@ To be safe, in case of an exception the battery simulation service deactivates i
 Next to the activate, there is also an modify and a deactivate.
 
 ```java
-	/**
-	 * This method gets called after the configuration changes 
-	 * 
-	 * @param context
-	 *            OSGi BundleContext-object
-	 * @param properties
-	 *            Map containing the configuration of this component
-	 */
+/**
+ * This method gets called after the configuration changes 
+ * 
+ * @param context
+ *            OSGi BundleContext-object
+ * @param properties
+ *            Map containing the configuration of this component
+ */
     @Modified
     public void modify(BundleContext context, Map<String, Object> properties) {
         try {
@@ -346,9 +346,9 @@ valueOf(configuration.selfDischargePower(), WATT);
 As the activate, the modify copies the configuration to its internal variables and (re)publishes the state of the battery. 
 
 ```java
-	/**
-	 * This method gets called when the service is deactivated
-	 */
+/**
+ * This method gets called when the service is deactivated
+ */
     @Deactivate
     public void deactivate() {
         if (widgetRegistration != null) {
