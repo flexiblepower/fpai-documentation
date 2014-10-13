@@ -16,7 +16,7 @@ sudo apt-get install openjdk-7-jdk
 ```
 
 ## Installing Eclipse
-The preferred IDE for developing apps for FPAI is Eclipse, currently at version Kepler. The FPAI heavily uses bnd for developing OSGi-bundles, and Eclipse has an excellent plug-in for bnd.
+The preferred IDE for developing apps for FPAI is Eclipse, currently at version Luna. The FPAI heavily uses bnd for developing OSGi-bundles, and Eclipse has an excellent plug-in for bnd.
 
 The latest version of Eclipse can be downloaded from [http://www.eclipse.org/downloads/](http://www.eclipse.org/downloads/). The Standard Eclipse distribution or the Eclipse IDE for Java Developers version is preferred. Be careful to select the right version for your platform. Eclipse is provided as a zip archive. It doesn't have an installer. Just extract Eclipse to a location which is convenient for you.
 
