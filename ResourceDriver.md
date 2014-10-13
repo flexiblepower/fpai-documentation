@@ -170,7 +170,10 @@ The `AbstractResourceDriver` is parameterized with the types `BatteryState` and 
 
 Why Runnable needs to be implemented will be explained later on in this section.
 
-The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has two attributes: `designateFactory` and `provide`. The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started. The `provide` attribute indicates how this component should be registered in OSGI’s registry; in this case as a `EndPoint.class`.
+The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has three attributes: 
+* The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started. 
+* The `provide` attribute indicates how this component should be registered in OSGI’s registry; in this case as a `EndPoint.class`.
+* The `immediate` attribute indicates that the component should be activated immediately.
 
 This code snippet also shows an inner `Config` interface. This allows this component to be configured from the Apache Web Console (more on this later). The `@Meta.OCD` annotation indicates that this is a OSGI Metatype interface. Within OSGI this configuration is specified in an XML file. The `@Meta` bndtools annotations make sure that is automatically created for you. OCD in `@Meta.OCD` stand for Object Class Definition which groups together a set of configurable attributes. In this case the `@Meta.OCD` annotation has a `name` attribute. This name will be shown in the Apache Web Console.
 
