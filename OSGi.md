@@ -10,7 +10,7 @@ If you followed the steps in [[chapter 2|SettingUpYourIDE]], you should now have
 
 **Figure: Eclipse with the Bndtools perspective**
 
-You will notice that there are several views (parts of the userinterface). You can reorganize these views as you like.
+You will notice that there are several views (part of the user interface). You can reorganize these views as you like.
 
 **Package Explorer**  
 
