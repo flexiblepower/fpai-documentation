@@ -112,9 +112,11 @@ public interface BatteryControlParameters extends ResourceControlParameters {
 
 ## Battery Simulation bundle
 
-* Copy the skeleton project and rename it into: `flexiblepower.simulation.battery`
-* Within this newly created project go to the `src` folder and rename the `org.flexiblepower.example.skeleton` package into: `org.flexiblepower.simulation.battery.BatterySimulation`
-* This package does need to be exposed to other components (this is the implementation and not the interface). Therefore the export-package parameter in the `bnd.bnd` file must be set. As well as all flexiblepower packages must be imported. 
+Copy the skeleton project and rename it into: `flexiblepower.simulation.battery`
+
+Within this newly created project go to the `src` folder and rename the `org.flexiblepower.example.skeleton` package into: `org.flexiblepower.simulation.battery.BatterySimulation`
+
+This package does need to be exposed to other components (this is the implementation and not the interface). Therefore the `Export-Package` parameter in the `bnd.bnd` file must be set. As well as all flexiblepower packages must be imported. 
 
 ```
 -buildpath: ${default-buildpath}
