@@ -64,7 +64,7 @@ Now it is time to start Eclipes. The first thing Eclipse asks is the location of
 When you start Eclipse for the first time it will show you the Welcome page. You can close it.
 
 ## Installing Bndtools
-The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and than to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.
+The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and then to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.
 
 For more information see [http://bndtools.org](http://bndtools.org). There is also a general tutorial available at [http://bndtools.org/tutorial.html](http://bndtools.org/tutorial.html).
 
