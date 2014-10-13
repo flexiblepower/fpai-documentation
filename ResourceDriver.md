@@ -1,6 +1,6 @@
 # 7. Resource Driver
 
-This sections explains how to write a resource driver using the battery simulation example. The resource driver forms an OSGI bundle; It is good practice to separate the interface from its implementation. This way the implementation can be changed without any impact to clients that use the interface. 
+This sections explains how to write a resource driver using the battery simulation example. The resource driver forms an OSGi bundle; It is good practice to separate the interface from its implementation. This way the implementation can be changed without any impact to clients that use the interface. 
 
 ## The Battery Simulation interfaces
 
@@ -172,10 +172,10 @@ Why Runnable needs to be implemented will be explained later on in this section.
 
 The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has three attributes: 
 * The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started. 
-* The `provide` attribute indicates how this component should be registered in OSGI’s registry; in this case as a `EndPoint.class`.
+* The `provide` attribute indicates how this component should be registered in OSGi’s registry; in this case as a `EndPoint.class`.
 * The `immediate` attribute indicates that the component should be activated immediately.
 
-This code snippet also shows an inner `Config` interface. This allows this component to be configured from the Apache Web Console (more on this later). The `@Meta.OCD` annotation indicates that this is a OSGI Metatype interface. Within OSGI this configuration is specified in an XML file. The `@Meta` bndtools annotations make sure that is automatically created for you. OCD in `@Meta.OCD` stand for Object Class Definition which groups together a set of configurable attributes. In this case the `@Meta.OCD` annotation has a `name` attribute. This name will be shown in the Apache Web Console.
+This code snippet also shows an inner `Config` interface. This allows this component to be configured from the Apache Web Console (more on this later). The `@Meta.OCD` annotation indicates that this is a OSGi Metatype interface. Within OSGi this configuration is specified in an XML file. The `@Meta` bndtools annotations make sure that is automatically created for you. OCD in `@Meta.OCD` stand for Object Class Definition which groups together a set of configurable attributes. In this case the `@Meta.OCD` annotation has a `name` attribute. This name will be shown in the Apache Web Console.
 
 The Config interface features a number of configuration methods which influence the behavior of the simulated battery. Each method is annotated with the `@Meta.AD` (Attribute Definition) annotation. The `description` attribute within this annotation will be visible in the web console, the `deflt` attribute can be used to provide a default value for its parameter (this value can still be edited in the web console).
 
@@ -624,7 +624,7 @@ In order to run the washing machine driver within eclipse, the following steps a
 
 ![](run_requirements_demo.png)
 
-Make sure that the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` is part of the “Run Requirements”. Click the “Resolve” button to check whether additional resources are needed and then press “Finish”. Save the `demo_all_resources.bndrun` file and click on the “Run OSGi” button. This will start OSGI.
+Make sure that the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` is part of the “Run Requirements”. Click the “Resolve” button to check whether additional resources are needed and then press “Finish”. Save the `demo_all_resources.bndrun` file and click on the “Run OSGi” button. This will start OSGi.
 
 * Point your web browser at “http://localhost:8080” to see the Dashboard of FPAI.
 * Open another tab and go to “http://localhost:8080/system/console/configMgr”. Should you need to authenticate yourself use “admin”, “admin”.
