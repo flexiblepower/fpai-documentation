@@ -1,85 +1,63 @@
 # 10. Developing a Widget
 
-Each component that is developed within FPAI can use a widget to provide insight to and receive input from the user. The example below explains how the resource driver for the washing machine can be extended with a widget.
+Each resource driver can have a widget, a web interface component. The `BatterySimulation` has one to visualize the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (mode) it is in. A widget consists out of a java class and three resources: a html file, a java script file and a style sheet. 
 
-Go to the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` project. Create a `WashingMachineWidget` class in the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` package.
+The skeleton project has default implementations of the resources, which are stored in the `/res/widgets/ExampleWidget` directory. First rename the `ExampleWidget` directory into `BatteryWidget`. 
+
+The code snippet below shows the java `BatteryWidget` class, which  must implement the Widget interface and provide a method to retrieve the status of the battery. In the first part of the code the `Update` class is defined, a holder the information for the widget. Then the `update` method, which creates an update object and fills it with the necessary information. This method will be called from javascript, as will be explained next.  
 
 ```java
-public class WashingMachineWidget implements Widget {
-	public static class Update {
-		private final String earliestStartTime;
-		private final String latestStartTime;
-		private final String programName;
-		
-		public Update(String earliestStartTime, String latestStartTime, String programName) {
-			this.earliestStartTime = earliestStartTime;
-			this.latestStartTime = latestStartTime;
-			this.programName = programName;
-		}
+public class BatteryWidget implements Widget {
+    public static class Update {
+        private final int soc;
+        private final String totalCapacity;
+        private final String mode;
 
-		public String getEarliestStartTime() {
-			return earliestStartTime;
-		}
+        public Update(int soc, String totalCapacity, String mode) {
+            this.soc = soc;
+            this.totalCapacity = totalCapacity;
+            this.mode = mode;
+        }
 
-		public String getLatestStartTime() {
-			return latestStartTime;
-		}
+        public int getSoc() {
+            return soc;
+        }
 
-		public String getProgramName() {
-			return programName;
-		}
-	}
-	
-	private final static DateFormat FORMATTER = new SimpleDateFormat("HH:mm:ss");
-	private final WashingMachineDriverImpl washingMachineDriverImpl;
-	
-	public WashingMachineWidget(WashingMachineDriverImpl washingMachineDriverImpl) {
-		this.washingMachineDriverImpl = washingMachineDriverImpl;
-	}
-	
-	public Update update() {
-		WashingMachineState state = washingMachineDriverImpl.getCurrentState();
-		
-		return new Update(FORMATTER.format(state.getEarliestStartTime()), FOR-MATTER.format(state.getLatestStartTime()), state.getProgramName());
-	}
+        public String getTotalCapacity() {
+            return totalCapacity;
+        }
 
-	@Override
-	public String getTitle(Locale locale) {
-		return "Washing Machine panel";
-	}
+        public String getMode() {
+            return mode;
+        }
+    }
 
+    private final BatterySimulation simulation;
+
+    public BatteryWidget(BatterySimulation simulation) {
+        this.simulation = simulation;
+    }
+
+    public Update update() {
+        BatteryState state = simulation.getCurrentState();
+        double soc = state.getStateOfCharge();
+        int socPercentage = (int) (soc * 100.0);
+        double capacity = state.getTotalCapacity().doubleValue(KWH);
+        BatteryMode mode = state.getCurrentMode();
+        return new Update(socPercentage, String.format("%2.1f kWh", capacity),
+       mode.toString());
+    }
+
+    @Override
+    public String getTitle(Locale locale) {
+        return "Storage Device Manager";
+    }
 }
 ```
 
-The important feature of this class is the inner `Update` class. This class will be serialized using JSON. This way information is made available to the widget in the GUI of FPAI.
-
-There is a private member variable that holds a reference to the `WashingMachineDriverImpl` object and that is initialized in the constructor.
-
-The update method gets called regularly. In this case it first gets the current state from the `WashingMachineDriverImpl` object and constructs a new Update object to return.
-
-The `getTitle` method returns the title of the widget panel.
-
-Create a `widgets` folder and make a subfolder that has the exact same name as the `WashingMachineWidget` class. This subfolder should contain three files: `script.js`, `style.css` and `index.html`. Additional files such as images that are used by this widget can also be placed here.
-
-This the content of the `script.js` file.
-
-```javascript
-$(window).load(function() {
-	w = new widget("update", 1000, function(data) {
-		$("#loading").detach();
-		$("p").show();
-		$(".error").hide();
-		$("#earliestStartTime").text(data.earliestStartTime);
-		$("#latestStartTime").text(data.latestStartTime);
-		$("#programName").text(data.programName);
-	});
-});
-```
-
-The JSON object is read and its values are available through the hash tags.
+The widget itself is a html file, which must be called `index.html`. It loads two style sheets, own default widget style sheet and a specific style sheet for this widget. After specifying a number of javascript libraries, the body is defined as a class called “widget”. In the battery simulation 8 pictures are created showing different state of charges of the battery, default the empty one is loaded. After that the 3 labels are defined, which will be update via javascript.
 
 The content of the `index.html` file is as follows:
-
 ```html
 <!doctype html>
 <html>
@@ -89,25 +67,54 @@ The content of the `index.html` file is as follows:
 	<script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/widget.js"></script>
 	<script type="text/javascript" src="script.js"></script>
-	<title>Washing Machine Panel</title>
+	<title>Simulated Battery Panel</title>
 </head>
 <body class="widget">
-	<img id="icon" src="ariston-washing-machine.png" alt="Washing Machine Panel" />
+	<img id="icon" src="1.png" alt="Battery" />
 	<img id="loading" src="/img/loading.gif" alt="Loading..." />
 
-	<p class="error"></p>
-	<p><label>Program</label> <span id="programName"></span></p>
-	<p><label>Start after</label> <span id="earliestStartTime"></span></p>
-	<p><label>Start before</label> <span id="latestStartTime"></span></p>
+	<p><label>State of charge</label> <span id="soc">...</span></p>
+	<p><label>Total capacity</label> <span id="tc">...</span></p>
+	<p><label>Current mode</label> <span id="mode">...</span></p>
 </body>
 </html>
 ```
 
-The html file refers to the hash tags from the javascript file using the `id` attribute.
+The javascript runs when the window is loaded. It creates a new widget which will call every 1000ms the update function on the java widget class. The data the this method produces is serialized and passed as data to the function. This function updates the three labels and adapts the state of charge picture to the new soc of the battery. The html file refers to the hash tags fromt he javascript file used the `id` attribute.
 
-The `style.css` file:
+The content of the `script.js` file is as follows:
+```javascript
+$(window).load(function() {
+	w = new widget("update", 1000, function(data) {
+		$("#loading").detach();
+		$("p").show();
+		$("#soc").text(data.soc + "%");
+		$("#tc").text(data.totalCapacity);
+		$("#mode").text(data.mode);
+		
+		if(data.soc > 87) {
+			$("#icon").attr("src", "8.png");
+		} else if(data.soc > 75) {
+			$("#icon").attr("src", "7.png");
+		} else if(data.soc > 62) {
+			$("#icon").attr("src", "6.png");
+		} else if(data.soc > 50) {
+			$("#icon").attr("src", "5.png");
+		} else if(data.soc > 37) {
+			$("#icon").attr("src", "4.png");
+		} else if(data.soc > 25) {
+			$("#icon").attr("src", "3.png");
+		} else if(data.soc > 12) {
+			$("#icon").attr("src", "2.png");
+		} else {
+			$("#icon").attr("src", "1.png");
+		}
+	});
+});
+```
 
-```css
+The content of the `style.css` file is as follows:
+```javascript
 #loading {
 	position: absolute;
 	left: 45%;
@@ -118,6 +125,7 @@ The `style.css` file:
 	position: absolute;
 	bottom: 0;
 	right: 1em;
+	height: 120px;
 }
 
 p {
@@ -125,62 +133,3 @@ p {
 	display: none;
 }
 ```
-
-This file contains the stylesheet for this widget.
-
-The widget is all set up, but it still needs to be started from the `WashingMachineDriverImpl` class. The following code snippets show the changes that had to be made to this class to successfully launch the widget.
-
-```java
-/** Reference to the registration as widget */
-private ServiceRegistration<Widget> widgetRegistration;
-/** Reference to the widget itself */
-private WashingMachineWidget widget;
-```
-
-First a variable of the `ServiceRegistration` type parameterized with a `Widget` interface is declared, together with a variable of the `WashingMachineWidget` type.
-
-```java
-	/**
-	 * This method gets called after this component gets a configuration and
-	 * after the methods with the Reference annotation are called
-	 * 
-	 * @param bundleContext
-	 *            OSGi BundleContext-object
-	 * @param properties
-	 *            Map containing the configuration of this component
-	 */
-	@Activate
-	public void activate(BundleContext bundleContext,
-			Map<String, Object> properties) {
-		// Get the configuration
-		config = Configurable.createConfigurable(Config.class, properties);
-
-		// Register us as an ObservationProvider
-		String resourceId = config.resourceId();
-		observationProviderRegistration = new ObservationProviderRegistra-tionHelper(
-				this).observationType(WashingMachineState.class)
-				.observationOf(resourceId).register();
-
-		widget = new WashingMachineWidget(this);
-		widgetRegistration = bundleContext.registerService(Widget.class, widget, null);
-		
-		schedulerService.scheduleAtFixedRate(this, 0, 5, ja-va.util.concurrent.TimeUnit.SECONDS);
-	}
-```
-
-In the activate method the `WashingMachineWidget` is constructed and registered with the `widgetRegistration`. When the `WashingMachineDriverImpl` gets started it will now also launch the `WashingMachineWidget`.
-
-```java
-	/**
-	 * This method is called before the driver gets destroyed
-	 */
-	@Deactivate
-	public void deactivate() {
-		widgetRegistration.unregister();
-		scheduledFuture.cancel(false);
-		observationProviderRegistration.unregister();
-	}
-```
-
-Finally, a line of code has to be added to the `deactivate` method to unregister the widget.
-
