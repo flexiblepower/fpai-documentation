@@ -182,16 +182,16 @@ The Config interface features a number of configuration methods which influence 
 The next fragment shows the basic private members of the `BatterySimulation` class.
 
 ```java
-/** Reference to the 'scheduling' of this object */
-private ScheduledFuture<?> scheduledFuture;
-/** Reference to shared scheduler */
-private ScheduledExecutorService scheduler;
-/** Reference to the registration as observationProvider */
-private ServiceRegistration<Widget> widgetRegistration;
-/** Reference to the {@link TimeService} */
-private TimeService timeService;
-/** Configuration of this object */
-private Config config;
+	/** Reference to the 'scheduling' of this object */
+	private ScheduledFuture<?> scheduledFuture;
+	/** Reference to shared scheduler */
+	private ScheduledExecutorService scheduler;
+	/** Reference to the registration as observationProvider */
+	private ServiceRegistration<Widget> widgetRegistration;
+	/** Reference to the {@link TimeService} */
+	private TimeService timeService;
+	/** Configuration of this object */
+	private Config config;
 ```
 
 These variables provide references to services that are offered by the platform. Their usage will be clear from the explanation of the methods of this class.
@@ -234,8 +234,7 @@ As is explained in the comment section of the code snippet this reference is use
 The next fragment shows the specific private members of the `BatterySimulation` class.
 
 ```java
-private static final Logger log = 
-    LoggerFactory.getLogger(BatterySimulation.class);
+private static final Logger log = LoggerFactory.getLogger(BatterySimulation.class);
 private Measurable<Power> dischargeSpeedInWatt; 
 private Measurable<Power> chargeSpeedInWatt; 
 private Measurable<Power> selfDischargeSpeedInWatt; 
@@ -263,18 +262,15 @@ The `activate` method initializes this component and will get called after the R
  */
 @Activate
  	public void activate(BundleContext context, Map<String, Object> properties) 
-throws Exception 
+	throws Exception 
 {
         try {
-            configuration = Configurable.createConfigurable(Config.class, 
-  properties);
+            configuration = Configurable.createConfigurable(Config.class, properties);
 
             totalCapacityInKWh = Measure.valueOf(configuration.totalCapacity(), KWH);
             chargeSpeedInWatt = Measure.valueOf(configuration.chargePower(), WATT);
-            dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(),
-   WATT);
-            selfDischargeSpeedInWatt = Meaure.valueOf(
-configuration.selfDischargePower(),WATT);
+            dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(),WATT);
+            selfDischargeSpeedInWatt = Meaure.valueOf(configuration.selfDischargePower(),WATT);
             stateOfCharge = configuration.initialStateOfCharge();
             minTimeOn = Measure.valueOf(0, SI.SECOND);
             minTimeOff = Measure.valueOf(0, SI.SECOND);
@@ -283,15 +279,15 @@ configuration.selfDischargePower(),WATT);
             publishState(new State(stateOfCharge, mode));
 
             scheduledFuture = scheduler.scheduleAtFixedRate(this, 0, 
-configuration.updateInterval(), TimeUnit.SECONDS);
+				configuration.updateInterval(), TimeUnit.SECONDS);
 
             widget = new BatteryWidget(this);
             widgetRegistration = context.registerService(Widget.class, widget, null);
         } catch (Exception ex) {
-		// When you don't catch your exception here,
-// your Runnable won't be scheduled again
+			// When you don't catch your exception here,
+			// your Runnable won't be scheduled again
             logger.error("Error during initialization of the battery simulation: " +
- 	      ex.getMessage(), ex);
+ 	      			   	 ex.getMessage(), ex);
             deactivate();
             throw ex;
         }
@@ -322,15 +318,12 @@ Next to the activate, there is also an modify and a deactivate.
     @Modified
     public void modify(BundleContext context, Map<String, Object> properties) {
         try {
-            configuration = Configurable.createConfigurable(Config.class, 
-  properties);
+            configuration = Configurable.createConfigurable(Config.class, properties);
 
             totalCapacityInKWh = Measure.valueOf(configuration.totalCapacity(), KWH);
             chargeSpeedInWatt = Measure.valueOf(configuration.chargePower(), WATT);
-            dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(),
-   WATT);
-            selfDischargeSpeedInWatt = Measure.
-valueOf(configuration.selfDischargePower(), WATT);
+            dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(), WATT);
+            selfDischargeSpeedInWatt = Measure.valueOf(configuration.selfDischargePower(), WATT);
             stateOfCharge = configuration.initialStateOfCharge();
             minTimeOn = Measure.valueOf(2, SI.SECOND);
             minTimeOff = Measure.valueOf(2, SI.SECOND);
@@ -339,7 +332,7 @@ valueOf(configuration.selfDischargePower(), WATT);
             publishState(new State(stateOfCharge, mode));
         } catch (RuntimeException ex) {
             logger.error("Error during initialization of the battery simulation: " +
-     ex.getMessage(), ex);
+     					 ex.getMessage(), ex);
             deactivate();
             throw ex;
         }
@@ -379,12 +372,11 @@ By multiplying this with the duration and dividing with 1000 * 3600, the charge 
     public synchronized void run() {
         Date currentTime = timeService.getTime();
         double durationSinceLastUpdate = 
-(currentTime.getTime() – lastUpdatedTime.getTime()) / 1000.0; // seconds
+			(currentTime.getTime() – lastUpdatedTime.getTime()) / 1000.0; // seconds
         lastUpdatedTime = currentTime;
         double amountOfChargeInWatt = 0;
 
-        logger.debug("Battery simulation step. Mode={} Timestep={}s", mode, 
-durationSinceLastUpdate);
+        logger.debug("Battery simulation step. Mode={} Timestep={}s", mode, durationSinceLastUpdate);
         if (durationSinceLastUpdate > 0) {
             switch (mode) {
             case IDLE:
@@ -401,13 +393,11 @@ durationSinceLastUpdate);
             }
 
             // always also self discharge
-            double changeInW = amountOfChargeInWatt – 
-selfDischargeSpeedInWatt.doubleValue(WATT);
+            double changeInW = amountOfChargeInWatt – selfDischargeSpeedInWatt.doubleValue(WATT);
             double changeInWS = changeInW * durationSinceLastUpdate;
             double changeinKWH = changeInWS / (1000.0 * 3600.0);
 
-            double newStateOfCharge = stateOfCharge + 
-(changeinKWH / totalCapacityInKWh.doubleValue(KWH));
+            double newStateOfCharge = stateOfCharge + (changeinKWH / totalCapacityInKWh.doubleValue(KWH));
 
             // check if the stateOfCharge is not outside the limits of the battery
             if (newStateOfCharge < 0.0) {
@@ -616,23 +606,3 @@ $(window).load(function() {
 });
 ```
 
-## Running the washing machine driver 
-
-In order to run the washing machine driver within eclipse, the following steps are needed.
-
-* Open the `demo_all_resources.bndrun` file in the `cnf` project.
-
-![](run_requirements_demo.png)
-
-Make sure that the `org.flexiblepower.example.timeshifter.washingmachine.driver.impl` is part of the “Run Requirements”. Click the “Resolve” button to check whether additional resources are needed and then press “Finish”. Save the `demo_all_resources.bndrun` file and click on the “Run OSGi” button. This will start OSGi.
-
-* Point your web browser at “http://localhost:8080” to see the Dashboard of FPAI.
-* Open another tab and go to “http://localhost:8080/system/console/configMgr”. Should you need to authenticate yourself use “admin”, “admin”.
-
-![](felix_config_mgr.png)
-
-Press the “+” button next to “Washing Machine Driver” (this is the name that was provided in the `@Meta.OCD` annotation earlier).
-
-![](felix_washing_machine.png)
-
-This opens the configuration for the “Washing Machine Driver”, which contains only one configuration item: Resource id. Keep the default value and press the “Save” button. As soon as the configuration is saved a new Washing Machine Driver component will be started. In the eclipse console logging rules from `WashingMachineDriverImpl` will start to appear. This component is now running.

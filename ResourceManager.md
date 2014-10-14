@@ -4,9 +4,9 @@ The resource manager does not offer services to other components. That means tha
 
 ## Resource Manager implementation bundle
 
-* Copy the skeleton project and rename it into: `flexiblepower.battery.manager`.
-* Within this newly created project go to the src folder and rename the `org.flexiblepower.example.skeleton` package into: `org.flexiblepower.battery.manager`.
-* Make sure this new package is referred to by the `Export-Package` property in the bnd.bnd file. This package needs to be exported by this bundle, since it offers a resource manager services, more specific the battery manager service, that can be used by other components. This project also makes use of the `flexiblepower.api.efi` bundle, so it needs to be included on the `-buildpath` property in the `bnd.bnd` file. The file should look as follows.
+Copy the skeleton project and rename it into: `flexiblepower.battery.manager`.
+Within this newly created project go to the src folder and rename the `org.flexiblepower.example.skeleton` package into: `org.flexiblepower.battery.manager`.
+Make sure this new package is referred to by the `Export-Package` property in the bnd.bnd file. This package needs to be exported by this bundle, since it offers a resource manager services, more specific the battery manager service, that can be used by other components. This project also makes use of the `flexiblepower.api.efi` bundle, so it needs to be included on the `-buildpath` property in the `bnd.bnd` file. The file should look as follows.
 
 ```
 -buildpath:  \
@@ -23,10 +23,9 @@ Export-Package:  \
 Create a new class `BatteryManager` that extends `AbstractResourceManager` and implements the `BufferResourceManager` interface.
 
 ```java
-@Component(designateFactory = Config.class, provide = Endpoint.class, 
-     immediate = true)
+@Component(designateFactory = Config.class, provide = Endpoint.class, immediate = true)
 public class BatteryManager 
- extends AbstractResourceManager<BatteryState, BatteryControlParameters>
+	   extends AbstractResourceManager<BatteryState, BatteryControlParameters>
        implements BufferResourceManager 
 {
     private static final Logger log = LoggerFactory.getLogger(BatteryManager.class);
@@ -125,8 +124,7 @@ The leakage of the battery will be 0.0001x/s
 
 ```java
     @Override
-    protected List<? extends ResourceMessage> 
-startRegistration(BatteryState batteryState) {
+    protected List<? extends ResourceMessage> startRegistration(BatteryState batteryState) {
         // safe current state of the battery
         currentBatteryState = batteryState;
         changedStateTimestamp = timeService.getTime();
@@ -139,9 +137,9 @@ startRegistration(BatteryState batteryState) {
         // create a buffer registration message
         Set<Actuator> actuators = new HashSet<Actuator>();
         actuators.add(batteryActuator);
-        batteryBufferRegistration = 
-new BufferRegistration<Energy>(configuration.resourceId(),
-     changedStateTimestamp,
+        batteryBufferRegistration = new BufferRegistration<Energy>(
+											configuration.resourceId(),
+     										changedStateTimestamp,
                                             toSeconds(0),
                                             "Battery level",
                                             WH,
@@ -156,23 +154,23 @@ For the `BufferSystemDescription` behavior of the actuators must be described an
         // ---- Buffer system description ----
         // create a behavior of the battery
         ActuatorBehaviour batteryActuatorBehaviour = 
-makeBatteryActuatorBehaviour(batteryActuator.getActuatorId());
+			makeBatteryActuatorBehaviour(batteryActuator.getActuatorId());
         // create the leakage function of the battery
         FillLevelFunction<LeakageRate> bufferLeakageFunction = 
-FillLevelFunction.<LeakageRate> create(0)
-             		    .add(6000, new LeakageRate(0.0001))
-    .build();
+			FillLevelFunction.<LeakageRate> create(0)
+             		    	 .add(6000, new LeakageRate(0.0001))
+    						 .build();
 
         // create the buffer system description message
         Set<ActuatorBehaviour> actuatorsBehaviours = 
-new HashSet<ActuatorBehaviour>();
+			new HashSet<ActuatorBehaviour>();
         actuatorsBehaviours.add(batteryActuatorBehaviour);
         BufferSystemDescription sysDescr = 
-new BufferSystemDescription(batteryBufferRegistration,
-         changedStateTimestamp,
-   changedStateTimestamp,
-   actuatorsBehaviours,
-   bufferLeakageFunction);
+			new BufferSystemDescription(batteryBufferRegistration,
+         								changedStateTimestamp,
+   										changedStateTimestamp,
+   										actuatorsBehaviours,
+   										bufferLeakageFunction);
 ```
 
 For the actuator behavior a helper method is created, which will be explained shortly. Next the leakage function is defined using the builder functionality of the `FillLevelFunction` class. It has a simple linear leakage function from 0 to 6000 it leaks with 0.0001. Note that a buffer uses a domain less value to indicate its filling level. In this case it is defined as a number between 0 and 6000.
@@ -204,29 +202,29 @@ To conclude an `ActuatorBehaviour` object can be made for the given actuator act
 	 --- additional transitions here ---
 
         // make the fill level functions
-FillLevelFunction<RunningModeBehaviour> chargeFillLevelFunctions =
-    FillLevelFunction.<RunningModeBehaviour> create(0)
-          .add(5000, new RunningModeBehaviour(0.3968,
-  CommodityMeasurables.create()
-                      .electricity(toWatt(1460))
-   .build(),
- 			         toEuroPerHour(0)))
-    .add(6000, new RunningModeBehaviour(0.2778,
-   CommodityMeasurables.create()
-    .electricity(toWatt(1050))
-    .build(),
-   toEuroPerHour(0)))
-    .build();
+		FillLevelFunction<RunningModeBehaviour> chargeFillLevelFunctions =
+    		FillLevelFunction.<RunningModeBehaviour> create(0)
+          		.add(5000, new RunningModeBehaviour(0.3968,
+  								CommodityMeasurables.create()
+                      								.electricity(toWatt(1460))
+   													.build(),
+ 			         			toEuroPerHour(0)))
+    			.add(6000, new RunningModeBehaviour(0.2778,
+   								CommodityMeasurables.create()
+    												.electricity(toWatt(1050))
+    												.build(),
+   								toEuroPerHour(0)))
+    			.build();
 
 	 --- additional fill level functions here ---
 
         // Based on the fill level functions and the transitions
         RunningMode<FillLevelFunction<RunningModeBehaviour>> chargeRunningMode =
-new RunningMode<FillLevelFunction<RunningModeBehaviour>>(
-BatteryMode.CHARGE.ordinal(),
-       "charging",
-chargeFillLevelFunctions,
-chargeTransition);
+			new RunningMode<FillLevelFunction<RunningModeBehaviour>>(
+					BatteryMode.CHARGE.ordinal(),
+       				"charging",
+					chargeFillLevelFunctions,
+					chargeTransition);
 
 	 --- additional running modes here ---
 
@@ -245,17 +243,17 @@ Now going back to the `startRegistration` method, the last message is the `Buffe
         // ---- Buffer state update ----
         // create running mode
         Set<ActuatorUpdate> currentRunningMode = 
-makeBatteryRunningModes(batteryActuator.getActuatorId(),
-  				           batteryState.getCurrentMode());
+			makeBatteryRunningModes(batteryActuator.getActuatorId(),
+  				           			batteryState.getCurrentMode());
 
         // create buffer state update message
         Measure<Double, Energy> currentFillLevel = getCurrentFillLevel(batteryState);
         BufferStateUpdate<Energy> update = 
-new BufferStateUpdate<Energy>(batteryBufferRegistration,
-          changedStateTimestamp,
-    changedStateTimestamp,
-    currentFillLevel,
-    currentRunningMode);
+			new BufferStateUpdate<Energy>(batteryBufferRegistration,
+          								  changedStateTimestamp,
+    									  changedStateTimestamp,
+    									  currentFillLevel,
+    									  currentRunningMode);
 
         log.debug("Battery manager start registration completed.");
         // return the three messages
@@ -276,7 +274,7 @@ To create a `BufferStateUpdate` message, a current fill level and a current runn
     BatteryMode batteryMode) {
         Set<ActuatorUpdate> runningModes = new HashSet<ActuatorUpdate>();
         ActuatorUpdate actuatorUpdate = 
-new ActuatorUpdate(actuatorId, batteryMode.ordinal(), null);
+			new ActuatorUpdate(actuatorId, batteryMode.ordinal(), null);
         runningModes.add(actuatorUpdate);
         return runningModes;
     }
@@ -296,8 +294,7 @@ The fill level is calculated out of the current state of charge of the battery m
         double stateOfCharge = batteryState.getStateOfCharge();
         Measurable<Energy> totalCapacity = batteryState.getTotalCapacity();
 
-        return Measure.valueOf(stateOfCharge * totalCapacity.doubleValue(WH),
-                               WH);
+        return Measure.valueOf(stateOfCharge * totalCapacity.doubleValue(WH), WH);
     }
 ```
 
@@ -311,8 +308,7 @@ The first check is to see if the current state has changed, if not do nothing. O
     @Override
     protected List<? extends ResourceMessage> updatedState(BatteryState batteryState)
     {
-        log.debug("Receive battery state update, mode=" + 
-batteryState.getCurrentMode());
+        log.debug("Receive battery state update, mode=" + batteryState.getCurrentMode());
 
         // Do nothing if there is no useful battery state change request
         if (batteryState.equals(currentBatteryState)) {
@@ -327,17 +323,17 @@ batteryState.getCurrentMode());
 
             // create running mode
             Set<ActuatorUpdate> currentRunningMode = 
-  makeBatteryRunningModes(batteryActuator.getActuatorId(),
-       batteryState.getCurrentMode());
+  				makeBatteryRunningModes(batteryActuator.getActuatorId(),
+       									batteryState.getCurrentMode());
             // create buffer state update message
             Measure<Double, Energy> currentFillLevel = 
-  getCurrentFillLevel(batteryState);
+  				getCurrentFillLevel(batteryState);
             BufferStateUpdate<Energy> update = 
-  new BufferStateUpdate<Energy>(batteryBufferRegistration,
-                                             changedStateTimestamp,
-validFrom,
-currentFillLevel,
-currentRunningMode);
+  				new BufferStateUpdate<Energy>(batteryBufferRegistration,
+                                              changedStateTimestamp,
+											  validFrom,
+											  currentFillLevel,
+											  currentRunningMode);
             // return state update message
             return Arrays.asList(update);
         }
@@ -357,14 +353,12 @@ For each actuator a `batteryMode` change must be scheduled. Therefore the batter
             log.debug("Received allocation " + bufferAllocation);
 
             // process all actuator allocations
-            Set<ActuatorAllocation> allocations = 
-  bufferAllocation.getActuatorAllocations();
+            Set<ActuatorAllocation> allocations = bufferAllocation.getActuatorAllocations();
             for (ActuatorAllocation allocation : allocations) {
                 // determine battery mode and specified delay.
-                BatteryMode batteryMode = 
-BatteryMode.values()[allocation.getRunningModeId()];
+                BatteryMode batteryMode = BatteryMode.values()[allocation.getRunningModeId()];
                 long delay = allocation.getStartTime().getTime() – 
-   timeService.getCurrentTimeMillis();
+							 	timeService.getCurrentTimeMillis();
                 delay = (delay <= 0 ? 1 : delay);
 
                 // set up the switch to the battery mode after the specified delay
@@ -372,10 +366,10 @@ BatteryMode.values()[allocation.getRunningModeId()];
 
                 // Send to attached energy app the acceptance of the request
                 allocationStatusUpdate(
-new AllocationStatusUpdate(timeService.getTime(),
-                                              bufferAllocation,
-                                              AllocationStatus.ACCEPTED,
-                                              ""));
+					new AllocationStatusUpdate(timeService.getTime(),
+                                               bufferAllocation,
+                                               AllocationStatus.ACCEPTED,
+                                               ""));
             }
 
             // all battery mode changes are scheduled at time, so nothing to return
