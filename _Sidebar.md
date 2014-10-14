@@ -14,5 +14,6 @@
   - [[6.2. Resource Manager|ResourceManager]]
   - [[6.3. Energy App|EnergyApp]]
   - [[6.4. Developing a Widget|Widget]]
+  - [[7. Running the FPAI examples|RunningExamples]]
   - [[Frequently asked questions|FAQ]]
   - [[Glossary|Glossary]]
