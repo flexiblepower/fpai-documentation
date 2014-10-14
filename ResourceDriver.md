@@ -1,4 +1,4 @@
-# 7. Resource Driver
+# 6.1. Resource Driver
 
 This sections explains how to write a resource driver using the battery simulation example. The resource driver forms an OSGi bundle; It is good practice to separate the interface from its implementation. This way the implementation can be changed without any impact to clients that use the interface. 
 

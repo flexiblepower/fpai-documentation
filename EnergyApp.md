@@ -1,4 +1,4 @@
-# 9. Energy App
+# 6.3. Energy App
 
 The energy app receives the `ControlSpace` from the `WashingMachineManager` and returns an `Allocation`.
 

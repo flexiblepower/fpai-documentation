@@ -1,4 +1,4 @@
-# 10. Developing a Widget
+# 6.4. Developing a Widget
 
 Each resource driver can have a widget, a web interface component. The `BatterySimulation` has one to visualize the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (mode) it is in. A widget consists out of a java class and three resources: a html file, a java script file and a style sheet. 
 

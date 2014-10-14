@@ -1,4 +1,4 @@
-# 8. Resource Manager
+# 6.2. Resource Manager
 
 The resource manager does not offer services to other components. That means that it is implemented as one OSGi service. 
 
