@@ -1,4 +1,4 @@
-# 7. Tutorial
+# 6. Tutorial
 
 This chapter will give a short step-by-step introduction to developing a Resource Driver, Resource Manager, an Energy App and a widget. For this example we will assume a buffer/storage appliance, in this case a battery and a dummy energy app which takes a simple decision on when to start charging the battery. We will start by getting the development environment up and running.
 
