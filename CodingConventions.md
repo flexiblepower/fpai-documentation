@@ -7,7 +7,7 @@ The coding conventions for the FPAI projects are captured in the project setting
 * All opening braces are on the same line as the statement starting the block.
 * Use default white spaces. This means 1 space after a comma or semicolon, and 1 space before and after each special operator (e.g. + - / * etc.) with the exception of the dot (function call operator).
 * There should never be white space at the end of a line.
-* Use at 1 empty line between methods. We may keep several private variable definitions together to indicate that they are related.
+* Use at least 1 empty line between methods. We may keep several private variable definitions together to indicate that they are related.
 * There must be 1 empty line at the end of the file.
 * All empty block statements must contains a newline.
 * Keep `} else {`, `} else if {`, `} while()`, `} catch() {` and `} finally {` on the same line.
@@ -43,7 +43,7 @@ class Example {
     /*
      * Some non-javadoc comment
      */
-    void foo(int parameter1, 
+    void foo(int parameter1,
              int parameter2,
              int parameter3,
              int parameter4,
@@ -81,11 +81,3 @@ enum MyEnum {
     int count() default 1;
 }
 ```
-
-# Branching
-
-We use several branches:
-
-- The **master** branch is used for releases. Each commit on this branch should be a merge from the development branch and changing the version to final. Only one of the main developers should touch this branch.
-- The **development** branch is used for latest snapshots. Each new feature will first be merged into this branch to be able to test if it works with the rest of the code. These should always be done through pull requests. Developers are discouraged from pushing to this branch directly.
-- For each new feature of bugfix a new branch should be created. This branch should start with the issue number and then a short description (e.g. 19-fix-npe-connectionmanager). These branches should simply be pushed to github and then you can create a pull request to merge it back to development. Make sure that this can be done cleanly (when you are behind the current development version, you can always use *git rebase*).

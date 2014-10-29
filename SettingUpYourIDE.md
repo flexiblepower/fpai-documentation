@@ -28,13 +28,13 @@ There are several ways can use Git. You could use the GitHub Desktop Client ([Wi
 For more details on using Git we recommend reading the [Git Pro book](http://git-scm.com/book). You can read it online for free.
 
 ## Cloning the example repository
-In this guide we will use the `fpai-examples` repository. This repository contains simple examples of Apps for the FPAI. You can find the repository [here](https://github.com/flexiblepower/fpai-examples).
+In this guide we will use the `fpai-examples` repository. This repository contains simple examples of Apps for the FPAI. You can find the repository [on GitHub](https://github.com/flexiblepower/fpai-examples).
 
 First of all, there are two ways of using the Git repository. If you only want to fiddle around with the examples, you can just check out the repository with HTTPS. This way you don't have to create a Github account. Changes you make to the code will only stay on your machine.
 
 You can also decide to fork the repository. This way you make a private copy of the repository on Github. You can push your changes to Github and share them with other users. This requires you to create a Github account, [upload your SSH keys](https://help.github.com/articles/generating-ssh-keys/), [fork the repository](https://help.github.com/articles/fork-a-repo/) and checking out the repository over SSH. For this tutorial it doesn't really matter which method you choose.
 
-On the right side of the [repository page](https://github.com/flexiblepower/fpai-examples) you can find the clone URL. When you don't have a Github account this should be `https://github.com/flexiblepower/fpai-examples.git`. Now we have to open up Git Bash and go the directory where you want your source code. Let's assume you have created this directory at `C:\Code\FPAI`. Since Bash is designed for Linux, you have to use forward shlashes instead of back slashes and use `/c/` instead of `C:\`. You can change the directory with the `cd` (change directory) command. In order to go to the right directory you have to type in the following command and press enter:
+On the right side of the [repository page](https://github.com/flexiblepower/fpai-examples) you can find the clone URL. When you don't have a Github account this should be `https://github.com/flexiblepower/fpai-examples.git`. Now we have to open up Git Bash and go the directory where you want your source code. Let's assume you have created this directory at `C:\Code\FPAI`. Since Bash is designed for Linux, you can use forward shlashes instead of back slashes and use `/c/` instead of `C:\`. You can change the directory with the `cd` (change directory) command. In order to go to the right directory you have to type in the following command and press enter:
 
 ```
 cd /c/Code/FPAI
@@ -68,12 +68,13 @@ The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Ma
 
 For more information see [http://bndtools.org](http://bndtools.org). There is also a general tutorial available at [http://bndtools.org/tutorial.html](http://bndtools.org/tutorial.html).
 
+
 ## Importing the projects
 The repository you checked out already contains some projects. We have to tell Eclipse to search for those repositories first. You can do this by going to `File` and than `Import`. Select `Existing Projects into Workspace` from the `General` directory and click the `Next` button.
 
 Click on the `Browse` button on top of the screen. It will automatically go to the your workspace directory. Click `OK` to select your workspace directory. Select all the projects and click `Finish`. Eclipse will add the projects to the Package explorer on the left of the screen.
 
-Finally, we have to select the Bndtools perspective. A perspective is a configuration of the Eclipse user interface which is made for a specific tasks. You can select a perspective by clicking `Window`, `Open perspective` and than `Other...`. Double click on `Bndtools` to open the Bndtools perspective.
+Finally, we have to select the Bndtools perspective. A perspective is a configuration of the Eclipse user interface which is made for a specific tasks. You can select a perspective by clicking `Window`, `Open perspective` and than `Other...`. Double click on `Bndtools` to open the Bndtools perspective. You can close the welcome window of eclipse, and tick the box not to show again.
 
 ## Next
-You're all set to start developing! In the next chapter we will discuss [[OSGi, Bndtools and the Felix Web Console|OSGi]].
+You're all set to start developing! In the next chapter we will discuss [[OSGi, Bndtools and the Felix Web Console|OSGi]]. Be sure to check out the [[Coding Conventions|CodingConventions]].
