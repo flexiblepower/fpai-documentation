@@ -169,7 +169,7 @@ This `CommodityMeasurables` class provides access to these values - expressed as
 
 Method | Description
 --- | ---
-`get(Commodity<BQ,FQ>)`: `Measurable<FQ>`` This method returns the value of a particular commodity as a `Measurable<FQ>` object. The `Commodity<BQ,FQ>` of interest is given as an argument.
+`get(Commodity<BQ,FQ>)`: `Measurable<FQ>` This method returns the value of a particular commodity as a `Measurable<FQ>` object. The `Commodity<BQ,FQ>` of interest is given as an argument.
 
 *Table 11: The methods of the `CommodityMeasurables` class*
 
@@ -179,20 +179,21 @@ The commodity forecast profile is quite similar to the commodity profile, but as
 ![Overview of the commodity forecast classes](ForecastClasses.png)
 
 ### CommodityForecast
-This class is derived from Profile. In the case of a CommodityForecast, all Element.value attributes should be of the type CommodityUncertainMeasurables. This constraint is not visible in the UML diagram but is ensured via Builder classes.
 
-CommodityForecast does not have any additional attributes.
+This class is derived from `Profile`. In the case of a `CommodityForecast`, all `Element.value` attributes should be of the type `CommodityUncertainMeasurables`. This constraint is not visible in the UML diagram but is ensured via `Builder` classes.
+
+`CommodityForecast` does not have any additional attributes.
 
 ### CommodityUncertainMeasurables
-The underlying structure of this class is a map of commodities and uncertain measures. The choice was made not to have a separate Profile for each Commodity, but rather to have a single Profile where each Element can contain multiple values; one for each Commodity.
+The underlying structure of this class is a map of commodities and uncertain measures. The choice was made not to have a separate `Profile` for each `Commodity`, but rather to have a single Profile where each Element can contain multiple values; one for each `Commodity`.
 
-This CommodityUncertainMeasurables class provides access to these values - expressed as a UncertainMeasure<FQ> object - for multiple commodities. It provides a get method that returns a UncertainMeasure<FQ> object, using the Commodity<BQ,FQ> of interest as an argument.
+This `CommodityUncertainMeasurables` class provides access to these values - expressed as a ` UncertainMeasure<FQ>` object - for multiple commodities. It provides a get method that returns a ` UncertainMeasure<FQ>` object, using the `Commodity<BQ,FQ>` of interest as an argument.
 
 Method | Description
 --- | ---
-get(Commodity<BQ,FQ>): UncertainMeasure<FQ> | This method returns the value of a particular commodity as a UncertainMeasure<FQ> object. The Commodity<BQ,FQ> of interest is given as an argument.
+`get(Commodity<BQ,FQ>)`: `UncertainMeasure<FQ>` | This method returns the value of a particular commodity as a `UncertainMeasure<FQ>` object. The `Commodity<BQ,FQ>` of interest is given as an argument.
 
-*Table 12: The attributes of the CommodityUncertainMeasurables class*
+*Table 12: The attributes of the `CommodityUncertainMeasurables` class*
 
 ### UncertainMeasure
 This class is being used to express uncertainty about a value. In most cases one would choose a normal or Gaussian distribution and specify the mean (μ) and the standard deviation (σ), whereby 68% of the range would fall within μ ± σ and 95% within μ ± 2σ. However a Gaussian distribution is not always the correct one to use, because a distribution may also be asymmetric. Consider a PV panel on a cloudy day for instance. It will be most likely that the PV panel will not produce any or only very little energy. The chance that a significant amount of energy will be produced is very small. Therefore the centre of gravity of this distribution will be around zero, yet it will not extend below zero, since the PV panel will never consume energy.
@@ -203,10 +204,11 @@ Another way of handling this problem is to not specify a particular distribution
 
 Attributes | Description
 --- | ---
-mean | Specifies the mean value.
-the68pprLowerBound | The lower bound of the 68 percent range.
-the68pprUpperBound | The upper bound of the 68 percent range.
-the95pprLowerBound | The lower bound of the 95 percent range.
-the95pprUpperBound | The upper bound of the 95 percent range.
-unit | The unit for this value.
+`mean` | Specifies the mean value.
+`the68pprLowerBound` | The lower bound of the 68 percent range.
+`the68pprUpperBound` | The upper bound of the 68 percent range.
+`the95pprLowerBound` | The lower bound of the 95 percent range.
+`the95pprUpperBound` | The upper bound of the 95 percent range.
+`unit` | The unit for this value.
 
+*Table 13: The attributes of the UncertainMeasure class*

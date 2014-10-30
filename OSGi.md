@@ -61,8 +61,7 @@ Bndtools features a pluggable repository model for bundles, that may be referenc
 FPAI can be run from Eclipse using a `.bndrun` file, typically placed in the `cnf` folder. It is advised to have a `bndrun` file for each use case, e.g. running all integration tests, just testing your new code or running only the core. In the `bndrun` file you specify which framework to use, the Java EE version, and most importantly, which bundles are required to run under Run Requirements. Bndtools then can resolve which bundles are needed in run bundles. Make sure you add all the required bundles under Run Requirements and make sure it resolves, or else running FPAI will fail.
 
 ## The Apache Felix Web Console
-!(The Apache Felix Web Console)[felix_config_mgr.png]
-Apache Felix has a web console, which can be found at http://localhost:8080/system/console/bundles . The default username and password are admin. Inside the web console, under  you can see which bundles are running and you can add configurations. Most of the time you will have to add a configuration in order to make a bundle run (otherwise it will be registered, but not active). This is also the case when a bundle is available, but not used anywhere. If a bunle has unsatisfied dependensies, it is shown as unsatisfied.
+![The Apache Felix Web Console](felix_config_mgr.png)
+Apache Felix has a web console, which can be found at http://localhost:8080/system/console/bundles/ . The default username and password are admin. Inside the web console, under  you can see which bundles are running and you can add configurations. Most of the time you will have to add a configuration in order to make a bundle run (otherwise it will be registered, but not active). This is also the case when a bundle is available, but not used anywhere. If a bunle has unsatisfied dependensies, it is shown as unsatisfied.
 
-## Next
-In [[4. Common classes and interfaces|CommonClasses]] you will learn to work with some common classes and interfaces in the FPAI.
+Next up is the [[Tutorial|Tutorial]]

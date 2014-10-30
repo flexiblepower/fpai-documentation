@@ -114,4 +114,4 @@ This bundle contains some plugins for the Felix Web console. This is a useful to
 [High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
 
 ## Next
-In [[2. Setting up your IDE|SettingUpYourIDE]] you will learn how to set up your development environment.
+We start explaining the implementation of [[FPAI|FPAI]].

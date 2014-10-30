@@ -100,7 +100,7 @@ Finally examples on how to use the buffer EFI are provided.
 
 This message informs the energy app about the capabilities of this buffer appliance.
 
-TODO: Figure 24
+![UML representation of buffer control space registration message](BufferCSRegistrationUML.png)
 
 #### BufferRegistration
 This class is derived from ControlSpaceRegistration and contains the registration items that are unique to a buffer.
@@ -127,7 +127,7 @@ Attribute | Description
 ### Buffer System Description Message
 This message describes the different running modes and their effect to the buffer appliance.
 
-TODO: Figure 25
+![UML representation of a buffer system description message](BufferSystemDescriptionUML.png)
 
 #### BufferUpdate
 
@@ -237,7 +237,7 @@ Attribute | Description
 #### Buffer State Update Message
 The System Description Message describes the behaviour of the buffer appliance. In order to make informed decisions on how to use the buffer one also needs to know its current state. This is communicated by this message.
 
-TODO: Figure 26
+![UML overview of the Buffer State Update Message](BufferStateUpdateUML.png)
 
 #### BufferStateUpdate
 This class contains up to date information about the state of the buffer.
@@ -273,7 +273,7 @@ Attribute | Description
 ### Buffer Target Profile Message
 This message is being used to communicate a target profile that has to be met by this buffer. The target profile describes the boundaries that the internal buffer quantity should respect for a specific period in time. It is important to stress that a new target profile message completely overrules a previous one.
 
-TODO: Figure 27
+![UML overview of the buffer target profile message](BufferTargetProfileUpdateUML.png)
 
 #### BufferTargetProfileUpdate
 This class is derived from BufferUpdate and contains the target profile for this buffer. The start time for this target profile is ControlSpaceUpdate.validFrom.
@@ -286,7 +286,7 @@ Attribute | Description
 
 ### Buffer Usage Forecast Message
 
-TODO: Figure 28
+![UML overview of buffer usage forecast message](BufferForecastUML.png)
 
 #### BufferUsageForecast
 This class is derived from `BufferUpdate` and contains the forecasted usage for this buffer. The start time for this forecast is `ControlSpaceUpdate.validFrom`.
@@ -304,7 +304,7 @@ It has no additional attributes.
 
 ### Buffer Allocation Message
 
-TODO: Figure 29
+![UML overview of the buffer allocation message](BufferAllocationUML.png)
 
 #### BufferAllocation
 This class is derived from `Allocation` and contains specific allocation information for a buffer appliance.

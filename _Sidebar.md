@@ -16,7 +16,7 @@
     - [[Timeshiftable EFI|TimeshiftableEFI]]
     - [[Buffer/Storage EFI|BufferStorageEFI]]
     - [[Unconstrained EFI|UnconstrainedEFI]]
-- [[OSGi, Bndtools and the Felix Web Console|OSGi]]
+- [[Working with OSGi|OSGi]]
 - [[Tutorial|Tutorial]]
   - [[Setting up your IDE|SettingUpYourIDE]]
 	- [[Resource Driver|ResourceDriver]]
