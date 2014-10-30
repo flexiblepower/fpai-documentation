@@ -1,17 +1,17 @@
 # Resource Abstraction Interface
 
-The core functionality of the FPAI is the ability to express [../Architecture#high-level-design](energy flexibility) in a reusable manner. The current implementation of called the [../EnergyFlexibilityInterface](EFI) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
+The core functionality of the FPAI is the ability to express [energy flexibility](Architecture#high-level-design) in a reusable manner. The current implementation of called the [EFI](EnergyFlexibilityInterface) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
 
 The following image shows the generic type of messages in the RAI.
 
-![Overview of the resource messages between the Application driver and the Energy app](rai-message-flow-diagram.png)
+![Overview of the resource messages between the Application driver and the Energy app](FPAI/RAI-SequenceDiagram-Messages.png)
 * Figure: Overview of the resource messages between the Application driver and the Energy app *
 
 The figure below provides an overview of all the communication classes in the Resource Abstraction Interface. All Energy 
 Flexibility Interface messages have been derived from one of these communication classes. The parent class of all messages is 
 the `ResourceMessage` class.
 
-![Overview of the communication classes of the RAI](rai-messages-classes.png)
+![Overview of the communication classes of the RAI](FPAI/RAI-ClassDiagram-ResourceMessage.png)
 * Figure: Overview of the communication classes of the RAI *
 
 The classes are described in the following sections.
@@ -77,7 +77,7 @@ additionalInfo | In addition to the status attribute additional and more specifi
 ### AllocationStatus
 This enumeration contains all possible states that may be fed back by an appliance driver to an energy app in response to an `Allocation`. Figure 5 shows the five states the allocation status can be. In the table below the states are explained.
 
-![AllocationStatus state diagram](AllocationStateDiagram.png)
+![AllocationStatus state diagram](FPAI/RAI-StateDiagram-Allocations.png)
 
 Enumeration | Description
 --- | ---
@@ -93,7 +93,7 @@ FINISHED | When the Allocation has been completed, the appliance driver will inf
 
 When an energy app or an appliance driver decides to revoke its sent allocation or control space update the `AllocationRevoke` and `ControlSpaceRevoke` messages can be used. The figure below provides an overview of the revoke classes.
 
-![Overview of the revoke classes](RevokeClasses.png)
+![Overview of the revoke classes](FPAI/RAI-ClassDiagram-Revoke.png)
 
 ### Control Space Revocation
 An appliance driver can revoke an already sent `ControlSpaceUpdate` message by sending the `ControlSpaceRevoke` message. After sending the message every received `ControlSpaceUpdate` should be removed by the energy app, only the registration message is valid afterwards.
@@ -108,7 +108,7 @@ Of course one can also think of other commodities such as heat, CO2 emissions or
 
 This version supports electricity, gas and heat as depicted in the next figure. The Java class contains to static declarations of the Commodity class. One for `Electricity` with as `billableUnit` kWh and as `flowUnit` W. And one for gas with as `billableUnit` `Cubic_Metres_per_Second`  and as `flowUnit` `Cubic_Metre`.
 
-![Commodity class diagram](CommodityClasses.png)
+![Commodity class diagram](FPAI/RAI-ClassDiagram-Commodity.png)
 
 ### Commodity
 This abstract class contains information about the units that are used for a particular commodity. There are currently implementations for the commodities ELECTRICITY, GAS and HEAT.
@@ -125,10 +125,10 @@ Quite often there is a need to describe an energy pattern; the consumption or pr
 
 A explained above, the commodity profile describes the consumption of a certain commodity over time. Figure 8 depicts an example of a commodity profile. The y-axis represents the flow unit amount of the commodity and the x-axis represents time. The profile comprises one or more bins (implemented as profile element 2.4.2) with a duration tx and a certain volume of commodity.
 
-![Example of a commodity profile](CommodityProfileExample.png)
+![Example of a commodity profile](FPAI/RAI-Example-CommodityProfile.png)
 
 
-![Overview of CommodityProfile classes](CommodityProfileClasses.png)
+![Overview of CommodityProfile classes](FPAI/RAI-ClassDiagram-CommodityProfile.png)
 
 ### Profile
 Throughout this specification different profile types are being used. These profiles are all derived from this generic `Profile` class.
@@ -170,7 +170,7 @@ Method | Description
 ## Commodity forecast
 The commodity forecast profile is quite similar to the commodity profile, but as it name implies it contains information about future events. In addition to the commodity profile, the forecast is also able to express uncertainty. This uncertainty applies both to the duration and the amount of a bin in the forecast.
 
-![Overview of the commodity forecast classes](ForecastClasses.png)
+![Overview of the commodity forecast classes](FPAI/RAI-ClassDiagram-CommodityForecast.png)
 
 ### CommodityForecast
 This class is derived from Profile. In the case of a CommodityForecast, all Element.value attributes should be of the type CommodityUncertainMeasurables. This constraint is not visible in the UML diagram but is ensured via Builder classes.
