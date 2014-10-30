@@ -7,7 +7,7 @@
 - [[Architecture|Architecture]]
   - [[FPAI Overview|FPAI]]
     - [[Resource Abstraction Interface|RAI]]
-    - [[Measure Framework|Measure]]	i
+    - [[Measure Framework|Measure]]
     - [[Runtime|Runtime]]
     - [[Observation Framework|ObservationFramework]]
     - [[Messaging Framework|MessagingFramework]]
