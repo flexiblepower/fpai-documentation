@@ -1,10 +1,10 @@
-# 6.4. Developing a Widget
+# Developing a Widget
 
-Each resource driver can have a widget, a web interface component. The `BatterySimulation` has one to visualize the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (mode) it is in. A widget consists out of a java class and three resources: a html file, a java script file and a style sheet. 
+Each resource driver can have a widget, a web interface component. The `BatterySimulation` has one to visualize the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (mode) it is in. A widget consists out of a java class and three resources: a html file, a java script file and a style sheet.
 
-The skeleton project has default implementations of the resources, which are stored in the `/res/widgets/ExampleWidget` directory. First rename the `ExampleWidget` directory into `BatteryWidget`. 
+The skeleton project has default implementations of the resources, which are stored in the `/res/widgets/ExampleWidget` directory. First rename the `ExampleWidget` directory into `BatteryWidget`.
 
-The code snippet below shows the java `BatteryWidget` class, which  must implement the Widget interface and provide a method to retrieve the status of the battery. In the first part of the code the `Update` class is defined, a holder the information for the widget. Then the `update` method, which creates an update object and fills it with the necessary information. This method will be called from javascript, as will be explained next.  
+The code snippet below shows the java `BatteryWidget` class, which  must implement the Widget interface and provide a method to retrieve the status of the battery. In the first part of the code the `Update` class is defined, a holder the information for the widget. Then the `update` method, which creates an update object and fills it with the necessary information. This method will be called from javascript, as will be explained next.
 
 ```java
 public class BatteryWidget implements Widget {
@@ -91,7 +91,7 @@ $(window).load(function() {
 		$("#soc").text(data.soc + "%");
 		$("#tc").text(data.totalCapacity);
 		$("#mode").text(data.mode);
-		
+
 		if(data.soc > 87) {
 			$("#icon").attr("src", "8.png");
 		} else if(data.soc > 75) {

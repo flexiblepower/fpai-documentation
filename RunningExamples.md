@@ -1,4 +1,4 @@
-# 7. Running the FPAI examples
+# Running the FPAI examples
 This section shows how to run the battery simulation, the battery manager and the dummy energy app. The following steps need to be performed.
 
 Open the <i>demo.bndrun</i> file in the <i>cnf</i> project.
@@ -50,7 +50,7 @@ When encountering unexpected errors, first try the following solutions:
 
 ![](project-build.png)
 
-In case you get the error below while it does not give a reason, you can try to simply delete the error and see if it dares to return. 
+In case you get the error below while it does not give a reason, you can try to simply delete the error and see if it dares to return.
 
 ![](project-build-error.png)
 

@@ -1,6 +1,6 @@
-# 6.1. Resource Driver
+# Resource Driver
 
-This sections explains how to write a resource driver using the battery simulation example. The resource driver forms an OSGi bundle; It is good practice to separate the interface from its implementation. This way the implementation can be changed without any impact to clients that use the interface. 
+This section explains how to write a resource driver using the battery simulation example. The resource driver forms an OSGi bundle; It is good practice to separate the interface from its implementation. This way the implementation can be changed without any impact to clients that use the interface.
 
 ## The Battery Simulation interfaces
 
@@ -68,7 +68,7 @@ public interface BatteryState extends ResourceState {
 }
 ```
 
-This interface is used to provide other components with state information from the battery. What is the total capacity of the battery, its charge and discharge speed, the leakage (or self discharge), the current state of charge (a number between 0 and 1 indicating the filling level) and the current BatteryMode: 
+This interface is used to provide other components with state information from the battery. What is the total capacity of the battery, its charge and discharge speed, the leakage (or self discharge), the current state of charge (a number between 0 and 1 indicating the filling level) and the current BatteryMode:
 
 ```java
 package org.flexiblepower.ral.drivers.battery;
@@ -116,7 +116,7 @@ Copy the skeleton project and rename it into: `flexiblepower.simulation.battery`
 
 Within this newly created project go to the `src` folder and rename the `org.flexiblepower.example.skeleton` package into: `org.flexiblepower.simulation.battery.BatterySimulation`
 
-This package does need to be exposed to other components (this is the implementation and not the interface). Therefore the `Export-Package` parameter in the `bnd.bnd` file must be set. As well as all flexiblepower packages must be imported. 
+This package does need to be exposed to other components (this is the implementation and not the interface). Therefore the `Export-Package` parameter in the `bnd.bnd` file must be set. As well as all flexiblepower packages must be imported.
 
 ```
 -buildpath: ${default-buildpath}
@@ -136,12 +136,12 @@ Create a new class (called `BatterySimulation`) that implements the `BatteryDriv
 /**
  * This is an example of a driver implementation for a battery simulation.
  */
-@Component(designateFactory = Config.class, 
-           provide = Endpoint.class, 
+@Component(designateFactory = Config.class,
+           provide = Endpoint.class,
            immediate = true)
-public class BatterySimulation 
-  extends AbstractResourceDriver<BatteryState, BatteryControlParameters> 
-  Implements BatteryDriver, Runnable 
+public class BatterySimulation
+  extends AbstractResourceDriver<BatteryState, BatteryControlParameters>
+  Implements BatteryDriver, Runnable
 {
     interface Config {
         @Meta.AD(deflt = "5", description = "Interval between state updates [s]")
@@ -170,8 +170,8 @@ The `AbstractResourceDriver` is parameterized with the types `BatteryState` and 
 
 Why Runnable needs to be implemented will be explained later on in this section.
 
-The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has three attributes: 
-* The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started. 
+The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has three attributes:
+* The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started.
 * The `provide` attribute indicates how this component should be registered in OSGi’s registry; in this case as a `EndPoint.class`.
 * The `immediate` attribute indicates that the component should be activated immediately.
 
@@ -200,9 +200,9 @@ These variables provide references to services that are offered by the platform.
 /**
  * Sets the TimeService. The TimeService is used to determine the current
  * time.
- * 
+ *
  * This method is called before the Activate method
- * 
+ *
  * @param timeService
  */
 @Reference(optional = false)
@@ -218,9 +218,9 @@ This methods adds a reference to the `TimeService` that is offered by the platfo
  * Sets a reference to a ScheduledExecutorService. This service can be used
  * to schedule tasks which implement the Runnable interface. Using a central
  * scheduler is more efficient than starting your own thread.
- * 
+ *
  * This method is called before the Activate method
- * 
+ *
  * @param timeService
  */
 @Reference(optional = false)
@@ -235,12 +235,12 @@ The next fragment shows the specific private members of the `BatterySimulation` 
 
 ```java
 private static final Logger log = LoggerFactory.getLogger(BatterySimulation.class);
-private Measurable<Power> dischargeSpeedInWatt; 
-private Measurable<Power> chargeSpeedInWatt; 
-private Measurable<Power> selfDischargeSpeedInWatt; 
-private Measurable<Energy> totalCapacityInKWh; 
-private Measurable<Duration> minTimeOn; 
-private Measurable<Duration> minTimeOff; 
+private Measurable<Power> dischargeSpeedInWatt;
+private Measurable<Power> chargeSpeedInWatt;
+private Measurable<Power> selfDischargeSpeedInWatt;
+private Measurable<Energy> totalCapacityInKWh;
+private Measurable<Duration> minTimeOn;
+private Measurable<Duration> minTimeOff;
 
 private BatteryMode mode;
 private Date lastUpdatedTime;
@@ -254,15 +254,15 @@ The `activate` method initializes this component and will get called after the R
 /**
  * This method gets called after this component gets a configuration and
  * after the methods with the Reference annotation are called
- * 
+ *
  * @param context
  *            OSGi BundleContext-object
  * @param properties
  *            Map containing the configuration of this component
  */
 @Activate
- 	public void activate(BundleContext context, Map<String, Object> properties) 
-	throws Exception 
+ 	public void activate(BundleContext context, Map<String, Object> properties)
+	throws Exception
 {
         try {
             configuration = Configurable.createConfigurable(Config.class, properties);
@@ -278,7 +278,7 @@ The `activate` method initializes this component and will get called after the R
 
             publishState(new State(stateOfCharge, mode));
 
-            scheduledFuture = scheduler.scheduleAtFixedRate(this, 0, 
+            scheduledFuture = scheduler.scheduleAtFixedRate(this, 0,
 				configuration.updateInterval(), TimeUnit.SECONDS);
 
             widget = new BatteryWidget(this);
@@ -294,7 +294,7 @@ The `activate` method initializes this component and will get called after the R
     }
 ```
 
-The first step of this method is to acquire the configuration parameters. Next the current state (IDLE) is being published to inform the battery manager. 
+The first step of this method is to acquire the configuration parameters. Next the current state (IDLE) is being published to inform the battery manager.
 
 Often a Resource Driver will be polling an appliance for new information. When this is the case the `ScheduledExecutorService` can be used to implement the polling. The `sheduleAtFixedRate` method has the following parameters: a class that implements Runnable, an initial delay, an interval and the time unit that is used.
 
@@ -302,14 +302,14 @@ Here we use `BatterySimulation` class itself, this also the reason that this cla
 
 An resource driver can have a widget, a web interface component. The `BatterySimulation` has own to visually show the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (`mode`) it is in. The widget must be registered as a service with OSGi. More explanation about this in the next paragraph.
 
-To be safe, in case of an exception the battery simulation service deactivates itself. 
+To be safe, in case of an exception the battery simulation service deactivates itself.
 
 Next to the activate, there is also an modify and a deactivate.
 
 ```java
 /**
- * This method gets called after the configuration changes 
- * 
+ * This method gets called after the configuration changes
+ *
  * @param context
  *            OSGi BundleContext-object
  * @param properties
@@ -339,7 +339,7 @@ Next to the activate, there is also an modify and a deactivate.
     }
 ```
 
-As the activate, the modify copies the configuration to its internal variables and (re)publishes the state of the battery. 
+As the activate, the modify copies the configuration to its internal variables and (re)publishes the state of the battery.
 
 ```java
 /**
@@ -358,12 +358,12 @@ As the activate, the modify copies the configuration to its internal variables a
     }
 ```
 
-This method is annotated with `@Deactivate` and is called before this component gets destroyed. This allows the component to clean up before its lifecycle is ended. In this case it unregisters the widget, if available. It also cancels all actions that were planned in the future for this component. 
+This method is annotated with `@Deactivate` and is called before this component gets destroyed. This allows the component to clean up before its lifecycle is ended. In this case it unregisters the widget, if available. It also cancels all actions that were planned in the future for this component.
 
 The code snippet below shows the run() method of the `BatterySimulation` class, the place which defines the simulation behavior. It is being called at a fixed rate as has been set up in the activate method.
 
 First the duration since the last update is being calculated. It is needed in order to determine how much energy (in watt/s) the simulation should have used to charge or discharge.
-Next, depending on the running mode, the amount of charge is being based on the configuration set up. Note that discharge is defined as negative charge. The simulation takes into account the self-discharge or leakage of the battery. This is being subtracted from the amount of charge. Resulting in the charge, expressed in Watt. 
+Next, depending on the running mode, the amount of charge is being based on the configuration set up. Note that discharge is defined as negative charge. The simulation takes into account the self-discharge or leakage of the battery. This is being subtracted from the amount of charge. Resulting in the charge, expressed in Watt.
 
 By multiplying this with the duration and dividing with 1000 * 3600, the charge in KWH is being calculated. Relating this to the total capacity gives the new state of charge. An additional check is added to see if the state of charge is below zero or above one, which is not possible. In that case, the battery is empty/full and switches to idle mode. Now the new state can be published and saved as current state for the next time this method is called.
 
@@ -371,7 +371,7 @@ By multiplying this with the duration and dividing with 1000 * 3600, the charge 
     @Override
     public synchronized void run() {
         Date currentTime = timeService.getTime();
-        double durationSinceLastUpdate = 
+        double durationSinceLastUpdate =
 			(currentTime.getTime() – lastUpdatedTime.getTime()) / 1000.0; // seconds
         lastUpdatedTime = currentTime;
         double amountOfChargeInWatt = 0;
@@ -421,14 +421,14 @@ By multiplying this with the duration and dividing with 1000 * 3600, the charge 
     }
 ```
 
-A helper class is created to communicate the state of the battery, based on the state of charge and the battery mode. This helper class also has access to the configuration parameters that define the behavior of the simulated battery. 
+A helper class is created to communicate the state of the battery, based on the state of charge and the battery mode. This helper class also has access to the configuration parameters that define the behavior of the simulated battery.
 
 ```java
     /**
      * Helper class to communicate the state of the battery
      */
     class State implements BatteryState {
-        private final double stateOfCharge; 
+        private final double stateOfCharge;
         private final BatteryMode mode;
 
         public State(double stateOfCharge, BatteryMode mode) {
@@ -473,17 +473,17 @@ A helper class is created to communicate the state of the battery, based on the 
     }
 ```
 
-The battery manager has the possibility to control the battery simulation via the `handleControlParameters`. The only thing that can be set is a new state of the battery. 
+The battery manager has the possibility to control the battery simulation via the `handleControlParameters`. The only thing that can be set is a new state of the battery.
 
 ```java
     @Override
-    protected void handleControlParameters(BatteryControlParameters 
+    protected void handleControlParameters(BatteryControlParameters
     controlParameters) {
         mode = controlParameters.getMode();
     }
 
     /**
-     * Method to return the current state of the simulated battery. 
+     * Method to return the current state of the simulated battery.
      * It is being used by the widget.
      *
      * @return

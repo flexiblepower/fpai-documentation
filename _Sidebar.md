@@ -2,7 +2,7 @@
 - [[Release Notes|ReleaseNotes]]
 - [[Release Policy|ReleasePolicy]]
 - [[Coding Conventions|CodingConventions]]
-  - [[Branching|Branching]]
+- [[Branching|Branching]]
 - [[Continuous Integration|ContinuousIntegration]]
 - [[FPAI Architecture|Architecture]]
   - [[FPAI Overview|FPAI]]

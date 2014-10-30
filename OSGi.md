@@ -1,4 +1,4 @@
-# 3. OSGi, Bndtools and the Felix Web Console
+# OSGi, Bndtools and the Felix Web Console
 ![](370px-Osgi_framework.svg.png)
 
 ** Figure: where OSGi comes in compared to Java **
