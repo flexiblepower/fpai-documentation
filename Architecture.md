@@ -83,4 +83,4 @@ You will also notice that there are several widgets. Every component in the syst
 [High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
 
 ## Next
-In [[2. Setting up your IDE|SettingUpYourIDE]] you will learn how to set up your development environment.
+We start explaining the implementation of [[FPAI|FPAI]].

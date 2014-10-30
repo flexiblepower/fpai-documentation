@@ -19,59 +19,59 @@ The following figure represents the data elements of an uncontrolled control sp 
 ![UML representation of uncontrolled control space registration message](UncontrolledUML.png)
 
 #### UncontrolledRegistration
-The UncontrolledRegistration object registers the appliance driver to the energy app, the message is describes the commodities that are consumed or produced by the uncontrolled appliance with the Commodity attribute. Furthermore if the modelled appliance has features that allow curtailing the consumption or production of the device, the curtail options can be expressed in a ConstraintList for every commodity.
+The `UncontrolledRegistration` object registers the appliance driver to the energy app, the message is describes the commodities that are consumed or produced by the uncontrolled appliance with the Commodity attribute. Furthermore if the modelled appliance has features that allow curtailing the consumption or production of the device, the curtail options can be expressed in a `ConstraintList` for every commodity.
 
 Attribute | Description
 --- | ---
-supportedCommodityCurtailments | A map of every applicable Commodity for the appliance as key and a ConstriantList representing the list of  possible curtail steps as an value.  The value of the map is optional and will only be provided if the appliance supports curtailing, otherwise it must be null.
+`supportedCommodityCurtailments` | A map of every applicable `Commodity` for the appliance as key and a `ConstriantList` representing the list of  possible curtail steps as an value.  The value of the map is optional and will only be provided if the appliance supports curtailing, otherwise it must be null.
 
-*Table 14: Attribute Descriptions of the UncontrolledRegistration class*
+*Table 14: Attribute Descriptions of the `UncontrolledRegistration` class*
 
 #### CommodityMap<V>
 
-This is a utility class that efficiently stores values for each type of Commodity. This map has less overhead than the HashMap or TreeMap implementations, because it just stores one reference for each commodity type.
+This is a utility class that efficiently stores values for each type of `Commodity`. This map has less overhead than the `HashMap` or `TreeMap` implementations, because it just stores one reference for each commodity type.
 
 It is parameterized so that it can contain any class as a value.
 
 Attribute | Description
 --- | ---
-gasValue | This attribute allows direct access to the value that corresponds with the gas commodity key.
-electricityValue | This attribute allows direct access to the value that corresponds with the electricity commodity key.
-heatValue | This attribute allows direct access to the value that corresponds with the heat commodity key.
-entrySet | This attributes holds the complete set of Entry objects. An Entry has a commodity as a key and can hold any value type.
+`gasValue` | This attribute allows direct access to the value that corresponds with the gas commodity key.
+`electricityValue` | This attribute allows direct access to the value that corresponds with the electricity commodity key.
+`heatValue` | This attribute allows direct access to the value that corresponds with the heat commodity key.
+`entrySet` | This attributes holds the complete set of `Entry` objects. An `Entry` has a commodity as a key and can hold any value type.
 
-*Table 15: Attribute Descriptions of the CommodityMap class*
+*Table 15: Attribute Descriptions of the `CommodityMap` class*
 
 #### Entry
 
-This class represents a single entry in the CommodityMap<V>. It has a commodity as a key and can hold any value type.
+This class represents a single entry in the `CommodityMap<V>`. It has a commodity as a key and can hold any value type.
 
 Attribute | Description
 --- | ---
-commodity | This attribute holds the commodity that this Entry holds a value for.
-value | The value can be of any type.
+`commodity` | This attribute holds the commodity that this `Entry` holds a value for.
+`value` | The value can be of any type.
 
 *Table 16: Attribute Descriptions of the Entry class*
 
 
 #### ConstraintListMap
 
-This class is derived from CommodityMap<V>. In the case of a ConstraintListMap the CommodityMap is parameterized with a ConstrainList<Q>. This is not directly visible in the Figure 12, but is ensured via builder classes.
+This class is derived from `CommodityMap<V>`. In the case of a `ConstraintListMap` the `CommodityMap` is parameterized with a `ConstrainList<Q>`. This is not directly visible in the figure, but is ensured via builder classes.
 
 #### ConstraintList
 
-In the UncontrolledRegistration object the ConstraintList describes the curtail levels supported by the modelled appliance. For example, if the power consumption of an air-conditioning unit can be curtailed to 1500 Watt, 750 Watt and 0 Watt. The ConstaintList contains those three values.
+In the `UncontrolledRegistration` object the `ConstraintList` describes the curtail levels supported by the modelled appliance. For example, if the power consumption of an air-conditioning unit can be curtailed to 1500 Watt, 750 Watt and 0 Watt. The `ConstaintList` contains those three values.
 
 #### Constraint
 
-A Constraint describes a value or a range of values from a certain Quantity (i.e. Watt). If it represents a single value then LowerBound and UpperBound will be equal.
+A Constraint describes a value or a range of values from a certain `Quantity` (i.e. Watt). If it represents a single value then `LowerBound` and `UpperBound` will be equal.
 
 Attribute | Description
 --- | ---
-LowerBound | The lower bound of the range or the value.
-UpperBound | The upper bound of the range or the value.
+`LowerBound` | The lower bound of the range or the value.
+`UpperBound` | The upper bound of the range or the value.
 
-Table 17: Attribute  Descriptions of the Constraint class**
+Table 17: Attribute Descriptions of the `Constraint` class**
 
 ### Uncontrolled Control Space Measurement Update Message
 
@@ -83,64 +83,64 @@ The uncontrolled control space measurement update message is used for updating t
 
 Attribute | Description
 --- | ---
-measurable | This attribute is of the type CommodityMeasurables. It contains the actual measurements for an uncontrolled appliance.
+`measurable` | This attribute is of the type `CommodityMeasurables`. It contains the actual measurements for an uncontrolled appliance.
 
-*Table 18: Attribute descriptions of UncontrolledMeasurement class.*
+*Table 18: Attribute descriptions of `UncontrolledMeasurement` class.*
 
 ### Uncontrolled Control Space Forecast Update Message
 The following figure represents the data elements of an uncontrolled control space update forecast message. This message is optional and can only be used if there is a mechanism in the appliance driver that can calculate a consumption/production forecast.
 
-TODO: Figure 14
+![UML representation of uncontrolled forecast update message](UncontrolledForecastUML.png)
 
 #### UncontrolledUpdate
 Marker class for updates for uncontrolled appliances.
 
 #### UncontrolledForecast
-The UncontrolledForecast class contains a consumption or production forecast. This information is represented by an instance of CommodityForecast.
+The `UncontrolledForecast` class contains a consumption or production forecast. This information is represented by an instance of `CommodityForecast`.
 
-The CommodityForecast class does not specify a startime for the forecast profile. For this purpose the ControlSpaceUpdate.validFrom is used, it marks the start time of the CommodityForecast profile.
+The `CommodityForecast` class does not specify a startime for the forecast profile. For this purpose the `ControlSpaceUpdate.validFrom` is used, it marks the start time of the `CommodityForecast` profile.
 
 Attribute | Description
 --- | ---
-forecast | This attribute is of the type CommodityForecast and contains the actual forecast profile.
+forecast | This attribute is of the type `CommodityForecast` and contains the actual forecast profile.
 
 *Table 19: Attribute descriptions of UncontrolledUpdate class.*
 
 ### Uncontrolled Allocation
 The following figure represents the data elements of an uncontrolled allocation message. An allocation will only be send to appliances which support curtailing production/consumption.
 
-TODO: Figure 15
+![UML representation of uncontrolled allocation message](UncontrolledAllocationUML.png)
 
 #### UncontrolledAllocation
 
-After receiving an UncontrolledAllocation from an energy app the appliance driver should follow one or more curtailmentProfiles (each commodity may have its own curtailment profile). This message contains these profiles and their startTime.
+After receiving an `UncontrolledAllocation` from an energy app the appliance driver should follow one or more `curtailmentProfiles` (each commodity may have its own curtailment profile). This message contains these profiles and their `startTime`.
 
 Attribute | Description
 --- | ---
-startTime | The time at which the curtailmentProfiles should start.
-curtailmentProfiles | This attribute is of the ConstraintProfileMap type. For every applicable commodity it contains a ConstraintProfile.
+`startTime` | The time at which the `curtailmentProfiles` should start.
+`curtailmentProfiles` | This attribute is of the `ConstraintProfileMap` type. For every applicable commodity it contains a `ConstraintProfile`.
 
-*Table 20: Attribute descriptions of UncontrolledAllocation class.*
+*Table 20: Attribute descriptions of `UncontrolledAllocation` class.*
 
 #### ConstraintProfileMap
 
-As the name of this class implies it is a map of ConstraintProfile<Q> objects which uses Commodity<BQ,FQ> as a key.
+As the name of this class implies it is a map of `ConstraintProfile<Q>` objects which uses `Commodity<BQ,FQ>` as a key.
 
 Method | Description
 --- | ---
-get(Commodity<BQ,FQ>): ConstraintProfile<Q> | This method returns a ConstraintProfile<Q> for a particular commodity. The Commodity<BQ,FQ> of interest is given as an argument.
+`get(Commodity<BQ,FQ>)`: `ConstraintProfile<Q>` | This method returns a `ConstraintProfile<Q>` for a particular commodity. The `Commodity<BQ,FQ>` of interest is given as an argument.
 
-*Table 21: Method descriptions of  ConstraintProfile class.*
+*Table 21: Method descriptions of `ConstraintProfile` class.*
 
 #### ConstraintProfile
 
-The ConstraintProfile<Q> is extended from the Profile class. It is parameterized with a quantity Q, which is the flow quantity (FQ) from the commodity that needs to be curtailed.
+The `ConstraintProfile<Q>` is extended from the `Profile` class. It is parameterized with a quantity Q, which is the flow quantity (FQ) from the commodity that needs to be curtailed.
 
-The ConstraintProfile<Q>.value is of the type Constraint<Q>. This is the same flow quantity as described above. Although this is not visible in the UML diagram, it is enforced in the builder classes that are used to construct a ConstraintProfile<Q>.
+The `ConstraintProfile<Q>.value` is of the type `Constraint<Q>`. This is the same flow quantity as described above. Although this is not visible in the UML diagram, it is enforced in the builder classes that are used to construct a `ConstraintProfile<Q>`.
 
-The lower - and upper bound attributes of Constraint<Q> represent the curtailment levels. If for instance a PV panel needs to be curtailed at 2000 Watt, the lower bound would be -2000 and the upper bound 0 (production is interpreted as negative consumption).
+The lower - and upper bound attributes of `Constraint<Q>` represent the curtailment levels. If for instance a PV panel needs to be curtailed at 2000 Watt, the lower bound would be -2000 and the upper bound 0 (production is interpreted as negative consumption).
 
-ConstraintProfile<Q> has no additional attributes.
+`ConstraintProfile<Q>` has no additional attributes.
 
 
 ### Uncontrolled EFI Examples
@@ -185,4 +185,3 @@ In a grid emergency situation, it is possible that the energy service desires th
 The application driver of the PV inverter has the ability to generate a production forecast based on weather forecast. The forecast is generated once every day once at 6 AM. In order to send the forecast to an energy app the Uncontrolled Forecast Update is used (Section 3.1.3). The forecast itself can be defined in the UncontrolledForecast class (Section 3.1.3.2). The forecasted profile created at 6 AM is depicted in Figure 16.  It contains a start time (validFrom in ControlSpaceUpdate class) and a number of bins CommodityForecast.Element with a duration (duration in CommodityForecast.Element) and parameterized with the CommodityUncertainMeasurables class which is able to express uncertainty.
 
 ![Example of forecast profile for PV](PVForecast.png)
-

@@ -12,7 +12,7 @@ Of course there may still be some appliance internal limitations that prevent an
 
 ### Unconstrained Registration Message
 
-TODO: Figure 31
+![UML representation of unconstrained control space registration message](UnconstrainedRegistrationUML.png)
 
 #### UnconstrainedRegistration
 This class is derived from `ControlSpaceRegistration` and contains the registration items that are unique to a buffer.
@@ -25,7 +25,7 @@ supportedCommidities | The set of all commodities that can be produced or consum
 
 ### Unconstrained System Description Message
 
-TODO: Figure 32
+![UML representation of unconstrained system description control space message](UnconstrainedSystemDescriptionUML.png)
 
 #### UnconstrainedUpdate
 
@@ -57,7 +57,7 @@ Attribute | Description
 
 ### Unconstrained State Update Message
 
-TODO: Figure 33
+![UML representation of unconstrained state update control space message](UnconstrainedStateUpdateUML.png)
 
 #### UnconstrainedStateUpdate
 This class contains up to date information about the state of the unconstrained appliance.
@@ -81,7 +81,7 @@ Attribute | Description
 
 ### Unconstrained Allocation Message
 
-TODO: Figure 34
+![UML representation of unconstrained allocation message](UnconstrainedAllocationUML.png)
 
 #### UnconstrainedAllocation
 
