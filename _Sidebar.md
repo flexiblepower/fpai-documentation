@@ -5,7 +5,7 @@
   - [[Branching|Branching]]
 - [[Continuous Integration|ContinuousIntegration]]
 - [[FPAI Architecture|Architecture]]
-  - [[FPAI|FPAI]]
+  - [[FPAI Overview|FPAI]]
     - [[Resource Abstraction Interface|RAI]]
     - [[Runtime|Runtime]]
     - [[Observation Framework|ObservationFramework]]
