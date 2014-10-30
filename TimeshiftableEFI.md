@@ -15,7 +15,7 @@ If there is more than one sequential commodity profiles, it is possible to defin
 ## Data Elements
 This section contains a description for each data element that parameterises the time shifter EFI. The first three subsections contain a UML representation and a parameter description of the three messages: registration, update and allocation message.
 
-![The messages of the TimeShifter EFI](TimeshifterEFI.png)
+![The messages of the TimeShifter EFI](TimeshifterEFI.svg)
 
 Finally two examples on how to use the time shifter EFI are provided.
 
