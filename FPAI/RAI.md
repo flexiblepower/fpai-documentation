@@ -1,6 +1,6 @@
 # Resource Abstraction Interface
 
-The core functionality of the FPAI is the ability to express [Architecture#high-level-design](energy flexibility) in a reusable manner. The current implementation of called the [EnergyFlexibilityInterface](EFI) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
+The core functionality of the FPAI is the ability to express [energy flexibility](Architecture#high-level-design) in a reusable manner. The current implementation of called the [EFI](EnergyFlexibilityInterface) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
 
 The following image shows the generic type of messages in the RAI.
 
