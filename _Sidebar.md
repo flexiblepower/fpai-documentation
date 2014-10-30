@@ -4,9 +4,10 @@
 - [[Coding Conventions|CodingConventions]]
   - [[Branching|Branching]]
 - [[Continuous Integration|ContinuousIntegration]]
-- [[FPAI Architecture|Architecture]]
-  - [[FPAI|FPAI]]
+- [[Architecture|Architecture]]
+  - [[FPAI Overview|FPAI]]
     - [[Resource Abstraction Interface|RAI]]
+    - [[Measure Framework|Measure]]	i
     - [[Runtime|Runtime]]
     - [[Observation Framework|ObservationFramework]]
     - [[Messaging Framework|MessagingFramework]]
