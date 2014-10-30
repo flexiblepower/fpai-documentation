@@ -2,12 +2,12 @@
 
 This section describes the different parts that make up the FlexiblePower Application Infrastructure (FPAI). This includes:
 
- - [Resource Abstraction Interface](rai): The interfaces that define what a `ResourceDriver`, `ResourceManager` and `ControllerManager` are and how they should be implemented by appliance drivers or energy applications.
- - [Measurable Objects](measure): Describes the framework to describe measurable values with quantities.
- - [Runtime Services](runtime): The services that are provided by default through the runtime project.
- - [Messaging Framework](messaging-framework): The framework that makes it possible to communicate asynchronously between components.
- - [Observation Framework](observation-framework): The framework that makes it easy to publish observations (such as from sensors), including metadata that describe the type of observations that are possible.
- - [Widgets](widgets): The widgets make it possible to easily provide a user interface for any component on the dashboard.
+ - [Resource Abstraction Interface](RAI): The interfaces that define what a `ResourceDriver`, `ResourceManager` and `ControllerManager` are and how they should be implemented by appliance drivers or energy applications.
+ - [Measurable Objects](Measure): Describes the framework to describe measurable values with quantities.
+ - [Runtime Services](Runtime): The services that are provided by default through the runtime project.
+ - [Messaging Framework](MessagingFramework): The framework that makes it possible to communicate asynchronously between components.
+ - [Observation Framework](ObservationFramework): The framework that makes it easy to publish observations (such as from sensors), including metadata that describe the type of observations that are possible.
+ - [Widgets](Widgets): The widgets make it possible to easily provide a user interface for any component on the dashboard.
 
 ## Core Bundles
 
