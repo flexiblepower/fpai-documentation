@@ -11,8 +11,7 @@
     - [[Runtime|Runtime]]
     - [[Observation Framework|ObservationFramework]]
     - [[Messaging Framework|MessagingFramework]]
-    - [[Widgets|Widgets]]
-  - [[Energy Flexibility Interface|EnergyFlexibilityInterface]]
+  - Energy Flexibility Interface
     - [[Uncontrolled EFI|UncontrolledEFI]]
     - [[Timeshiftable EFI|TimeshiftableEFI]]
     - [[Buffer/Storage EFI|BufferStorageEFI]]
