@@ -5,6 +5,7 @@ To be able to monitor systems connected to the FPAI, an observation framework ha
 There are two roles defined in this framework; the `ObservationProvider` and the `ObservationConsumer`. These roles can be filled by any component that is an application on top of FPAI. See this figure for an overview.
 
 ![Overview of the Observation Framework](FPAI/Observation-Scope.png)
+
 *Overview of the Observation Framework*
 
 The concept is similar to a [publish/subscribe patter](http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) where the messages are observations of a (possible real-world) object. The `ObservationProvider` is a publisher to which `ObservationConsumers` can register itself. After being registered the `ObservationConsumer` received `Observation` objects through its `consume` method. This relationship is many-to-many, so several consumers can subscribe to the same provider and one consumer can subscribe to more providers than one. 
@@ -56,6 +57,15 @@ Any object that implements the `ObservationConsumer` can easily find any `Observ
 ```java
 @Reference(dynamic=true, multiple=true, optional=true, target="(org.flexiblepower.monitoring.type=org.flexiblepower.example.SensorState)")
 public void addObservationProvider(ObservationProvider<SensorState> provider, Map<String, Object> properties) {
-    // Do something with it!
+    provider.subscribe(this);
+}
+
+public void removeObservationProvider(ObservationProvider<SensorState> provider) {
+    provider.unsubscribe(this);
+}
+
+@Override
+public void consume(ObservationProvider<SensorState> provider, Observation<SensorState> observation) {
+    // Do something with the new observation
 }
 ```
