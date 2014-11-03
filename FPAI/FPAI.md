@@ -55,4 +55,4 @@ This bundle adds a page to the UI that displays information on appliances connec
 This bundle contains plugins for the Felix Web console. They provide useful tools for FPAI developers or administrators.
 
 At this moment it only includes a `ConnectionManagerPlugin` that provides a graphical representation of the 
-(endpoints)[MessagingFramework#endpoint) and the connections between them.
+[[endpoints|MessagingFramework#endpoint]] and the connections between them.
