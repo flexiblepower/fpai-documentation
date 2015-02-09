@@ -4,7 +4,7 @@
 In this tutorial we will explain how you to set up your development environment.
 
 ## Installing the Java Development Kit
-First of all, the Java Development Kit (a.k.a. the JDK) needs to be installed. The FPAI is developed in Java  version 1.6 (also refered to as version 6), so at least version 1.6 of the JDK needs te present. Version 1.7 (or version 7) works also fine. At the moment we would not recommend using Java 8.
+First of all, the Java Development Kit (a.k.a. the JDK) needs to be installed. The FPAI is developed in Java  version 1.6 (also refered to as version 6), so at least version 1.6 of the JDK needs to be present. Later versions also work fine, so you can just install the latest version for your operating system.
 
 To check if you have installed the JDK you can execute the command `javac -version` on the command line. Windows users can access the command line through Start menu, press Run, type `cmd` and click the OK button. If the JDK is installed you should see the version number. If the JDK is not installed you should get a warning indicating that the command could not be found.
 
