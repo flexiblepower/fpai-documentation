@@ -211,7 +211,7 @@ public void setTimeService(TimeService timeService) {
 }
 ```
 
-This methods adds a reference to the `TimeService` that is offered by the platform. Any component that needs to work with time has to have a reference to this service. Please note the `@Reference(optional = false)` annotation.
+This method adds a reference to the `TimeService` that is offered by the platform. Any component that needs to work with time has to have a reference to this service. Please note the `@Reference(optional = false)` annotation.
 
 ```java
 /**
