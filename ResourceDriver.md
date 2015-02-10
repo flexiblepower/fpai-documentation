@@ -261,37 +261,33 @@ The `activate` method initializes this component and will get called after the R
  *            Map containing the configuration of this component
  */
 @Activate
- 	public void activate(BundleContext context, Map<String, Object> properties)
-	throws Exception
-{
-        try {
-            configuration = Configurable.createConfigurable(Config.class, properties);
+public void activate(BundleContext context, Map<String, Object> properties) throws Exception {
+    try {
+        configuration = Configurable.createConfigurable(Config.class, properties);
 
-            totalCapacityInKWh = Measure.valueOf(configuration.totalCapacity(), KWH);
-            chargeSpeedInWatt = Measure.valueOf(configuration.chargePower(), WATT);
-            dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(),WATT);
-            selfDischargeSpeedInWatt = Meaure.valueOf(configuration.selfDischargePower(),WATT);
-            stateOfCharge = configuration.initialStateOfCharge();
-            minTimeOn = Measure.valueOf(0, SI.SECOND);
-            minTimeOff = Measure.valueOf(0, SI.SECOND);
-            mode = BatteryMode.IDLE;
+        totalCapacityInKWh = Measure.valueOf(configuration.totalCapacity(), KWH);
+        chargeSpeedInWatt = Measure.valueOf(configuration.chargePower(), WATT);
+        dischargeSpeedInWatt = Measure.valueOf(configuration.dischargePower(),WATT);
+        selfDischargeSpeedInWatt = Meaure.valueOf(configuration.selfDischargePower(),WATT);
+        stateOfCharge = configuration.initialStateOfCharge();
+        minTimeOn = Measure.valueOf(0, SI.SECOND);
+        minTimeOff = Measure.valueOf(0, SI.SECOND);
+        mode = BatteryMode.IDLE;
 
-            publishState(new State(stateOfCharge, mode));
+        publishState(new State(stateOfCharge, mode));
 
-            scheduledFuture = scheduler.scheduleAtFixedRate(this, 0,
-				configuration.updateInterval(), TimeUnit.SECONDS);
+        scheduledFuture = scheduler.scheduleAtFixedRate(this, 0, configuration.updateInterval(), TimeUnit.SECONDS);
 
-            widget = new BatteryWidget(this);
-            widgetRegistration = context.registerService(Widget.class, widget, null);
-        } catch (Exception ex) {
-			// When you don't catch your exception here,
-			// your Runnable won't be scheduled again
-            logger.error("Error during initialization of the battery simulation: " +
- 	      			   	 ex.getMessage(), ex);
-            deactivate();
-            throw ex;
-        }
+        widget = new BatteryWidget(this);
+        widgetRegistration = context.registerService(Widget.class, widget, null);
+    } catch (Exception ex) {
+		// When you don't catch your exception here,
+		// your Runnable won't be scheduled again
+        logger.error("Error during initialization of the battery simulation: " + ex.getMessage(), ex);
+        deactivate();
+        throw ex;
     }
+}
 ```
 
 The first step of this method is to acquire the configuration parameters. Next the current state (IDLE) is being published to inform the battery manager.
