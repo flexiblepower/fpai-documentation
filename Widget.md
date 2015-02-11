@@ -2,7 +2,7 @@
 
 Each resource driver can have a widget, a web interface component. The `BatterySimulation` has one to visualize the state of charge (`soc`), the total capacity of the simulated battery (`totalCapacity`) and the battery mode (mode) it is in. A widget consists out of a java class and three resources: a html file, a java script file and a style sheet.
 
-The skeleton project has default implementations of the resources, which are stored in the `/res/widgets/ExampleWidget` directory. First rename the `ExampleWidget` directory into `BatteryWidget`.
+The skeleton project has default implementations of the resources, which are stored in the `/res/widgets/ExampleWidget` directory. First rename the `ExampleWidget` directory into `BatteryWidget`. Note that a Widget's folder must be called exactly the same as the java file.
 
 The code snippet below shows the java `BatteryWidget` class, which  must implement the Widget interface and provide a method to retrieve the status of the battery. In the first part of the code the `Update` class is defined, a holder the information for the widget. Then the `update` method, which creates an update object and fills it with the necessary information. This method will be called from javascript, as will be explained next.
 
@@ -133,3 +133,12 @@ p {
 	display: none;
 }
 ```
+
+### Troubleshooting
+If you do not see a widget, you have to make sure a couple of things:
+- make sure the widget's bundle gets started, by adding the bundle to the .bndrun. Make sure the resolve button is able to resolve all dependencies.
+- make sure your classes are started and a configuration is loaded
+- make sure the widget's res directory is called exaclty the same as the corresponding Java class file.
+- make sure the widget has an index.html file.
+- try to clean and build all packages and restart the bundles.
+- in rare cases it is needed to clean the configuration and recreate it; or a restart of Eclipse helps.
