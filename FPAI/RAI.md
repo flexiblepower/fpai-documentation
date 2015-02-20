@@ -4,7 +4,7 @@ The core functionality of the FPAI is the ability to express [energy flexibility
 
 The following image shows the generic type of messages in the RAI.
 
-![Overview of the resource messages between the Application driver and the Energy app](RAI-SequenceDiagram-Messages.png)
+![Overview of the resource messages between the Application driver and the Energy app](/FPAI/RAI-SequenceDiagram-Messages.png)
 * Figure: Overview of the resource messages between the Application driver and the Energy app *
 
 The figure below provides an overview of all the communication classes in the Resource Abstraction Interface. All Energy 
@@ -203,4 +203,3 @@ the68pprUpperBound | The upper bound of the 68 percent range.
 the95pprLowerBound | The lower bound of the 95 percent range.
 the95pprUpperBound | The upper bound of the 95 percent range.
 unit | The unit for this value.
-
