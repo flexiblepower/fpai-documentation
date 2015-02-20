@@ -59,9 +59,11 @@ git submodule update
 It might take some time to download these additional files. When these task are done you should also have a `cnf.shared` directory in your repository.
 
 ## Starting Eclipse
-Now it is time to start Eclipes. The first thing Eclipse asks is the location of your workspace. For the FPAI, each repository is also a workspace. So selecte the directory you just checked out (`C:\Code\FPAI\fpai-examples`).
+Now it is time to start Eclipes. The first thing Eclipse asks is the location of your workspace. For the FPAI, each repository is also a workspace. So select the directory you just checked out (`C:\Code\FPAI\fpai-examples`).
 
 When you start Eclipse for the first time it will show you the Welcome page. You can close it.
+
+**Tip:** Are you using a lot of workspaces? When Eclipse starts, it asks you which workspace you want to use. Eclipse only remembers the last five workspaces you have used. Once you have opened up a workspace, you can increase this number by going to 'Window', 'Preferences' and than 'General', 'Startup and Shutdown'. Here you can manage the known workspaces and change the number of recent workspaces to remember.
 
 ## Installing Bndtools
 The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and then to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.
