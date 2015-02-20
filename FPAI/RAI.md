@@ -4,7 +4,7 @@ The core functionality of the FPAI is the ability to express [energy flexibility
 
 The following image shows the generic type of messages in the RAI.
 
-![Overview of the resource messages between the Application driver and the Energy app](/FPAI/RAI-SequenceDiagram-Messages.png)
+![Overview of the resource messages between the Application driver and the Energy app](FPAI/RAI-SequenceDiagram-Messages.png)
 * Figure: Overview of the resource messages between the Application driver and the Energy app *
 
 The figure below provides an overview of all the communication classes in the Resource Abstraction Interface. All Energy 
