@@ -1,4 +1,4 @@
-# 1. Architecture
+# Architecture
 
 ## Introduction
 
@@ -76,11 +76,3 @@ Communication wiring is done using a messaging abstraction, implemented in the `
 Any component, like an implementation of a ResourceDriver or ResourceManager, can have an annotation `@Ports` which can contain multiple `@Port` definitions, which have a `name`, `cardinality`, `sends`, and `accepts` parameter; the latter specify which objects are accepted by this object. They then must implement a MessageHandler that accepts the object(s). A cardinality can be given to specify wheter it support a single or multiple connections. Exact details are specified in the tutorial that follows later. Note that the usage of the `ResourceId` property is depricated since the 14.10 release.
 
 You will also notice that there are several widgets. Every component in the system can provide a widget which is shown in the main page of the dashboard.
-
-## Further reading
-[Detailed Functional Design](FAN - FlexiblePower Application Infrastructure - Detailed Functional Design v1.0.pdf)
-
-[High level Functional Specification FPAI](FAN - High level Functional Specification FPAI v0.4.pdf)
-
-## Next
-We start explaining the implementation of [[FPAI|FPAI]].

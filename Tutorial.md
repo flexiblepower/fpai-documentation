@@ -1,4 +1,4 @@
-# 6. Tutorial
+# Tutorial
 
 This chapter will give a short step-by-step introduction to developing a Resource Driver, Resource Manager, an Energy App and a widget. For this example we will assume a buffer/storage appliance, in this case a battery and a dummy energy app which takes a simple decision on when to start charging the battery. We will start by getting the development environment up and running.
 
@@ -26,7 +26,7 @@ If you really want to start from scratch, use File → New → Bndtools OSGi Pro
 The implementations of the resources are based on interfaces. Some of these interfaces are already defined in the org.flexiblepower.ral.driver.* package, optionally you can also define your own interface. The implementation of your resource is placed in a specific project, based on the skeleton project e.g. `org.flexiblepower.simulation.battery`
 
 ## Example project
-To illustrate the building of a resource drive, resource manager, energy app and widget, an example about a battery is used. The [[resource driver|ResourceDriver]] will simulate the behavior of a battery. The [[resource manager|ResourceManager]] will manage a battery and communicate, via the EFI, with the energy app. The [[energy app|EnergyApp]] will show a simple energy management approach. The conculde a [[wdiget|Widget]] will be constructed to show the status of the simulated battery.
+To illustrate the building of a resource drive, resource manager, energy app and widget, an example about a battery is used. The [Resource Driver](ResourceDriver.md) will simulate the behavior of a battery. The [Resource Manager](ResourceManager.md) will manage a battery and communicate, via the EFI, with the energy app. The [Energy App](EnergyApp.md) will show a simple energy management approach. The conculde a [Widget](Widget.md) will be constructed to show the status of the simulated battery.
   
 
 

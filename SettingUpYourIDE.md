@@ -77,6 +77,3 @@ The repository you checked out already contains some projects. We have to tell E
 Click on the `Browse` button on top of the screen. It will automatically go to the your workspace directory. Click `OK` to select your workspace directory. Select all the projects and click `Finish`. Eclipse will add the projects to the Package explorer on the left of the screen.
 
 Finally, we have to select the Bndtools perspective. A perspective is a configuration of the Eclipse user interface which is made for a specific tasks. You can select a perspective by clicking `Window`, `Open perspective` and than `Other...`. Double click on `Bndtools` to open the Bndtools perspective. You can close the welcome window of eclipse, and tick the box not to show again.
-
-## Next
-You're all set to start developing! Be sure to check out [[OSGi, Bndtools and the Felix Web Console|OSGi]] and [[Coding Conventions|CodingConventions]] before developing.

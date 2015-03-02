@@ -1,1 +1,0 @@
-[![FAN logo](http://www.flexiblepower.org/wp-content/themes/fan3/assets/img/logo.png)](http://www.flexiblepower.org/)

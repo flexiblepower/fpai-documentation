@@ -1,18 +1,19 @@
 # Resource Abstraction Interface
 
-The core functionality of the FPAI is the ability to express [energy flexibility](Architecture#high-level-design) in a reusable manner. The current implementation of called the [EFI](EnergyFlexibilityInterface) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
+The core functionality of the FPAI is the ability to express [energy flexibility](../Architecture.md#high-level-design) in a reusable manner. The current implementation of called the [EFI](../EFI.md) and should be used directly. But to be able to update the EFI in the future or even to make other abstractions possible (e.g. for home automation), the RAI defines a generic set of messages that define the communication.
 
 The following image shows the generic type of messages in the RAI.
 
-![Overview of the resource messages between the Application driver and the Energy app](FPAI/RAI-SequenceDiagram-Messages.png)
-* Figure: Overview of the resource messages between the Application driver and the Energy app *
+![Overview of the resource messages between the Application driver and the Energy app](RAI-SequenceDiagram-Messages.png)
+
+**Figure: Overview of the resource messages between the Application driver and the Energy app**
 
 The figure below provides an overview of all the communication classes in the Resource Abstraction Interface. All Energy 
 Flexibility Interface messages have been derived from one of these communication classes. The parent class of all messages is 
 the `ResourceMessage` class.
 
-![Overview of the communication classes of the RAI](FPAI/RAI-ClassDiagram-ResourceMessage.png)
-* Figure: Overview of the communication classes of the RAI *
+![Overview of the communication classes of the RAI](RAI-ClassDiagram-ResourceMessage.png)
+**Figure: Overview of the communication classes of the RAI**
 
 The classes are described in the following sections.
 
@@ -28,7 +29,7 @@ timestamp | This timestamp indicates the moment in time this message was constru
 *Table 2: The attributes of the ResourceMessage class*
 
 ### Controlspace Registration
-As soon as an appliance becomes available to an energy app (a term that is used interchangeably with â€œSmart Grid Applicationâ€� from Figure 1), it will send a `ControlSpaceRegistration` message. This message is used to inform the energy app about the capabilities of the appliance.
+As soon as an appliance becomes available to an energy app (a term that is used interchangeably with Smart Grid Application from Figure 1), it will send a `ControlSpaceRegistration` message. This message is used to inform the energy app about the capabilities of the appliance.
 
 Each of the ControlSpace categories introduced in Table 1 will have its own registration class that is derived from this one. Attributes about specific capabilities are added in the derived messages and are defined in the next chapters.
 

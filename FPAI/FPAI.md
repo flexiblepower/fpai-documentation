@@ -2,12 +2,12 @@
 
 This section describes the different parts that make up the FlexiblePower Application Infrastructure (FPAI). This includes:
 
- - [Resource Abstraction Interface](RAI): The interfaces that define what a `ResourceDriver`, `ResourceManager` and `ControllerManager` are and how they should be implemented by appliance drivers or energy applications.
- - [Measurable Objects](Measure): Describes the framework to describe measurable values with quantities.
- - [Runtime Services](Runtime): The services that are provided by default through the runtime project.
- - [Messaging Framework](MessagingFramework): The framework that makes it possible to communicate asynchronously between components.
- - [Observation Framework](ObservationFramework): The framework that makes it easy to publish observations (such as from sensors), including metadata that describe the type of observations that are possible.
- - [Widgets](Widgets): The widgets make it possible to easily provide a user interface for any component on the dashboard.
+ - [Resource Abstraction Interface](RAI.md): The interfaces that define what a `ResourceDriver`, `ResourceManager` and `ControllerManager` are and how they should be implemented by appliance drivers or energy applications.
+ - [Measurable Objects](Measure.md): Describes the framework to describe measurable values with quantities.
+ - [Runtime Services](Runtime.md): The services that are provided by default through the runtime project.
+ - [Messaging Framework](MessagingFramework.md): The framework that makes it possible to communicate asynchronously between components.
+ - [Observation Framework](ObservationFramework.md): The framework that makes it easy to publish observations (such as from sensors), including metadata that describe the type of observations that are possible.
+ - [Widgets](../Widget.md): The widgets make it possible to easily provide a user interface for any component on the dashboard.
 
 ## Core Bundles
 
@@ -23,11 +23,11 @@ common data objects that are used throughout the FPAI.
 ###flexiblepower.api.ext
 This bundle contains abstract implementations for the RAI, such as the `AbstractResourceManager` and `AbstractResourceDriver` 
 that make it easier to implement drivers. It also includes definitions for specific drivers (e.g. for a refrigerator or
-dishwasher). More information on using these is shown in the [tutorial](../ResourceDriver#battery-simulation-bundle).
+dishwasher). More information on using these is shown in the [tutorial](../ResourceDriver.md#battery-simulation-bundle).
 
 ###flexiblepower.api.efi
 This bundle contains interfaces and classes for data objects for the Energy Flexibility Interface (EFI). The EFI is the
-standard RAI that is used in the FPAI. More information on the EFI can be found [here](../EnergyFlexibilityInterface).
+standard RAI that is used in the FPAI. More information on the EFI can be found [here](../EFI.md).
 
 ###flexiblepower.api.efi.utils
 This bundle contains utility classes which help Energy Apps interpret messages from the Energy Flexibility Interface (EFI).

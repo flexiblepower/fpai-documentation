@@ -4,7 +4,7 @@ The `flexiblepower.runtime` bundle provides a couple of default services. The `T
 
 ## ConnectionManager
 
-The runtime also provides an implementation of the `ConnectionManager`. This service is responsible for detecting endpoints for the messaging framework and provides an API to determine which connections should be activated and which should not be activated. For more information on this implementation, see [this section](messaging-framework).
+The runtime also provides an implementation of the `ConnectionManager`. This service is responsible for detecting endpoints for the messaging framework and provides an API to determine which connections should be activated and which should not be activated. For more information on this implementation, see [this section](MessagingFramework.md).
 
 ## TimeService and ScheduledExecutionService 
 

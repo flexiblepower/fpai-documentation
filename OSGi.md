@@ -63,5 +63,3 @@ FPAI can be run from Eclipse using a `.bndrun` file, typically placed in the `cn
 ## The Apache Felix Web Console
 ![The Apache Felix Web Console](felix_config_mgr.png)
 Apache Felix has a web console, which can be found at http://localhost:8080/system/console/bundles/ . The default username and password are admin. Inside the web console, under  you can see which bundles are running and you can add configurations. Most of the time you will have to add a configuration in order to make a bundle run (otherwise it will be registered, but not active). This is also the case when a bundle is available, but not used anywhere. If a bunle has unsatisfied dependensies, it is shown as unsatisfied.
-
-Next up is the [[Tutorial|Tutorial]]
