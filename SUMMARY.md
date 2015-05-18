@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Architecture](Architecture.md)
+  * [Design Philosophy](DesignPhilosophy.md)
   * [FPAI Overview](FPAI/FPAI.md)
     * [Resource Abstraction Interface](FPAI/RAI.md)
     * [Measure Framework](FPAI/Measure.md)
