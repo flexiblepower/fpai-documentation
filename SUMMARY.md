@@ -18,6 +18,8 @@
 * [OSGi Tutorial](OSGi/Introduction.md)
   * [Setting up your IDE](OSGi/Setup.md)
   * [Bundles](OSGi/Bundle.md)
+  * [Services](OSGi/Services.md)
+  * [Declarative Services](OSGi/DeclarativeServices.md)
 * [FPAI Tutorial](Tutorial.md)
   * [Setting up your IDE](SettingUpYourIDE.md)
   * [Resource Driver](ResourceDriver.md)
