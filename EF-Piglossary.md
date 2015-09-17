@@ -1,7 +1,7 @@
 # Glossary
 
 ###App
-See [Architecture](Architecture)
+See [Architecture](Architecture.md)
 
 ###Bndtools
 An Eclipse plug-in which makes working with OSGi easier. For more information see [Setting up your IDE](SettingUpYourIDE.md).
