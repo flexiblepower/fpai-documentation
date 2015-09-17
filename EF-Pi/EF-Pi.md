@@ -11,7 +11,7 @@ This section describes the different parts that make up the Energy Flexibility P
 
 ## Core Bundles
 
-In the [EF-Pi-core repository](https://github.com/flexiblepower/EF-Pi-core) you will find all the bundles for the EF-Pi platform.
+In the [EF-Pi-core repository](https://github.com/flexiblepower/fpai-core) you will find all the bundles for the EF-Pi platform.
 This repository is really the core of the EF-Pi; it contains no Apps, such as device drivers, protocol drivers or smart grid 
 applications.
 

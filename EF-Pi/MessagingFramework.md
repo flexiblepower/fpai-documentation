@@ -12,7 +12,7 @@ They then must implement a MessageHandler that accepts the object(s). The enum C
 
 Under water it is implemented as follows: the `ConnectionManager` object is responsible for keeping the administration. It holds the interfaces for retrieving all `ManagedEndpoint`s. A `ManagedEndpoint` has a port, in the form of the `EndpointPort` class. This class is instantiated by the service using the annotations as explained above. It holds the `PotentialConnection`s, which possibly connects two `EndpointPort`s.
 
-Within EF-Pi the `PotentialConnection`s are shown in the Felix Webconsole, as explained in [Working with OSGi](../OSGi.md) chapter. It has an EF-Pi plugin called `ConnectionManager` under “Main” → “EF-Pi: ConnectionManager”. The ConnectionManager graphically displays the different components (that were started previously) as rectangles. This shows all `EndPoint`s, with their `EnpointPort`s. When an `EndPoint` has a Port that sends and receives the objects another `EndPoint` knows how to receive and send, they have a possible connection and are shown as yellow in the UI:
+Within EF-Pi the `PotentialConnection`s are shown in the Felix Webconsole, as explained in [Working with OSGi](OSGi/Introduction.md) chapter. It has an EF-Pi plugin called `ConnectionManager` under “Main” → “EF-Pi: ConnectionManager”. The ConnectionManager graphically displays the different components (that were started previously) as rectangles. This shows all `EndPoint`s, with their `EnpointPort`s. When an `EndPoint` has a Port that sends and receives the objects another `EndPoint` knows how to receive and send, they have a possible connection and are shown as yellow in the UI:
 
 ![Possible connections](ConnectionManager-1.png)
 

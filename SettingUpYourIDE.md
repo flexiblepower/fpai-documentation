@@ -42,8 +42,10 @@ cd /c/Code/EF-Pi
 
 Now we have to clone the Git repository into this directory. You can use the `git clone` command with the clone URL:
 
+(please note our repositories are not up2date yet with our recent name change from FPAI -> EF-Pi
+
 ```
-git clone https://github.com/flexiblepower/EF-Pi-examples.git
+git clone https://github.com/flexiblepower/fpai-examples.git
 ```
 
 Git will create a directory named `git-examples` inside the `C:\Code\EF-Pi` directory with the source code.
@@ -51,7 +53,7 @@ Git will create a directory named `git-examples` inside the `C:\Code\EF-Pi` dire
 In the EF-Pi projects we use [git submodules](http://git-scm.com/docs/git-submodule) to share some files with several repositories. In order to be able to use these files you have first have to go inside your repository directory, and then execute two commands for initializing the submodule:
 
 ```
-cd EF-Pi-examples
+cd fpai-examples
 git submodule init
 git submodule update
 ```
@@ -59,7 +61,7 @@ git submodule update
 It might take some time to download these additional files. When these task are done you should also have a `cnf.shared` directory in your repository.
 
 ## Starting Eclipse
-Now it is time to start Eclipes. The first thing Eclipse asks is the location of your workspace. For the EF-Pi, each repository is also a workspace. So select the directory you just checked out (`C:\Code\EF-Pi\EF-Pi-examples`).
+Now it is time to start Eclipes. The first thing Eclipse asks is the location of your workspace. For the EF-Pi, each repository is also a workspace. So select the directory you just checked out (`C:\Code\EF-Pi\fpai-examples`).
 
 When you start Eclipse for the first time it will show you the Welcome page. You can close it.
 

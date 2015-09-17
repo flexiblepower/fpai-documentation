@@ -1,13 +1,13 @@
 # Glossary
 
 ###App
-See [EF-Pi App](#EF-Pi-app)
+See [Architecture](Architecture)
 
 ###Bndtools
 An Eclipse plug-in which makes working with OSGi easier. For more information see [Setting up your IDE](SettingUpYourIDE.md).
 
 ###Component
-A component is a special type of object which (among other things) can be configured through OSGi Configuration Admin. For more information see [OSGi, Bndtools and the Felix Web Console](OSGi.md).
+A component is a special type of object which (among other things) can be configured through OSGi Configuration Admin. For more information see [OSGi, Bndtools and the Felix Web Console](OSGi/Introduction.md).
 
 ###Energy App
 An application for the EF-Pi which can utilize energy flexibility offered by smart appliances. For more information see [Energy App](EnergyApp.md).

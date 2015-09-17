@@ -11,11 +11,11 @@ Point your web browser at <i>http://localhost:8080</i> to see the Dashboard of E
 
 Open another tab and go to <i>http://localhost:8080/system/console/configMgr</i>. Should you need to authenticate yourself use “admin”, “admin”.
 
-![](EF-Pi-dashboard.main.png)
+![](efpi-dashboard.main.png)
 
 Press the “+” button next to “Battery simulation config”.
 
-![](EF-Pi-dashboard.config.png)
+![](efpi-dashboard.config.png)
 
 This opens the configuration for the battery simulation, which contains several configuration items to control the simulation of the battery. Simply keep all default values and press the “Save” button. As soon as the configuration is saved a new battery simulation component will be started. In the eclipse console logging rules from <I>o.f.s.battery.BatterySimulation</I> will start to appear. This component is now running.
 
@@ -28,13 +28,13 @@ The three components are now running separately from each other. They need to be
 
 In the Apache Felix Web Console click on “Main” → “EF-Pi: ConnectionManager”. This opens the ConnectionManager in the browser.
 
-![](ConnectionManager-1.png)
+![](EF-Pi/ConnectionManager-1.png)
 
 The ConnectionManager graphically displays the different components (that were started previously) as rectangles. Each component has one or more ports that are depicted as circles. The dotted line shows potential connections that can be made between the ports of the different components.
 
 Click on the “Autoconnect” button to automatically connect all potential connections.
 
-![](ConnectionManager-2.png)
+![](EF-Pi/ConnectionManager-2.png)
 
 The connections will now show up green, which means that the connection has been realized and messages can be exchanged between the components. These messages are also logged in the eclipse console. The EF-Pi dashboard also shows that the battery simulation is charging. The instruction to charge was sent by the Dummy Energy App.
 
