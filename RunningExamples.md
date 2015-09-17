@@ -1,4 +1,4 @@
-# Running the FPAI examples
+# Running the EF-Pi examples
 This section shows how to run the battery simulation, the battery manager and the dummy energy app. The following steps need to be performed.
 
 Open the <i>demo.bndrun</i> file in the <i>cnf</i> project.
@@ -7,26 +7,26 @@ Open the <i>demo.bndrun</i> file in the <i>cnf</i> project.
 
 Make sure that `org. flexiblepower.simulation.battery`, `flexiblepower.battery.manager` and `flexiblepower.dummy.energyapp` are part of the “Run Requirements”. Click the “Resolve” button to check whether additional resources are needed and then press “Finish”. Save the `demo.bndrun` file and click on the “Run OSGi” button. This will start OSGI.
 
-Point your web browser at <i>http://localhost:8080</i> to see the Dashboard of FPAI.
+Point your web browser at <i>http://localhost:8080</i> to see the Dashboard of EF-Pi.
 
 Open another tab and go to <i>http://localhost:8080/system/console/configMgr</i>. Should you need to authenticate yourself use “admin”, “admin”.
 
-![](fpai-dashboard.main.png)
+![](EF-Pi-dashboard.main.png)
 
 Press the “+” button next to “Battery simulation config”.
 
-![](fpai-dashboard.config.png)
+![](EF-Pi-dashboard.config.png)
 
 This opens the configuration for the battery simulation, which contains several configuration items to control the simulation of the battery. Simply keep all default values and press the “Save” button. As soon as the configuration is saved a new battery simulation component will be started. In the eclipse console logging rules from <I>o.f.s.battery.BatterySimulation</I> will start to appear. This component is now running.
 
 Start the Battery manager (“Battery manager config” in the Apache Felix Web Console) and the Dummy Energy App in a similar manner.
 
 
-## FPAI ConnectionManager
+## EF-Pi ConnectionManager
 
-The three components are now running separately from each other. They need to be connected to be able to exchange messages. This is done via the FPAI ConnectionManager.
+The three components are now running separately from each other. They need to be connected to be able to exchange messages. This is done via the EF-Pi ConnectionManager.
 
-In the Apache Felix Web Console click on “Main” → “FPAI: ConnectionManager”. This opens the ConnectionManager in the browser.
+In the Apache Felix Web Console click on “Main” → “EF-Pi: ConnectionManager”. This opens the ConnectionManager in the browser.
 
 ![](ConnectionManager-1.png)
 
@@ -36,7 +36,7 @@ Click on the “Autoconnect” button to automatically connect all potential con
 
 ![](ConnectionManager-2.png)
 
-The connections will now show up green, which means that the connection has been realized and messages can be exchanged between the components. These messages are also logged in the eclipse console. The FPAI dashboard also shows that the battery simulation is charging. The instruction to charge was sent by the Dummy Energy App.
+The connections will now show up green, which means that the connection has been realized and messages can be exchanged between the components. These messages are also logged in the eclipse console. The EF-Pi dashboard also shows that the battery simulation is charging. The instruction to charge was sent by the Dummy Energy App.
 
 ![](Dashboard-batterywidget.png)
 

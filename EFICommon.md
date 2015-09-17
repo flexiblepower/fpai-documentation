@@ -3,14 +3,14 @@
 The four categories as described in the chapter about [Control Spaces](EFI.md) share a number of common data elements. These elements are introduced in this chapter, the subsequent chapter will go into the specifics of each category.
 
 ## Resource Abstraction Interface (RAI) and Energy Flexibility Interface (EFI)
-The version of the Energy Flexibility Interface (EFI) that is described in this document might be superseded by newer versions in the future. This should have as less impact as possible on the rest of the FPAI framework.
+The version of the Energy Flexibility Interface (EFI) that is described in this document might be superseded by newer versions in the future. This should have as less impact as possible on the rest of the EF-Pi framework.
 
-All EFI messages are derived from a limited, generic set of messages. The communication in the FPAI framework is built around this limited number of messages. These messages are part of the Resource Abstraction Interface (RAI).
+All EFI messages are derived from a limited, generic set of messages. The communication in the EF-Pi framework is built around this limited number of messages. These messages are part of the Resource Abstraction Interface (RAI).
 
 Although this document focuses on the control of energy flexibility, the RAI may also be used to support other forms of control, e.g. home automation.
 
 
-The image below shows all possible messages in the FPAI.
+The image below shows all possible messages in the EF-Pi.
 
 ![Overview of the resource messages between the Application driver and the Energy app](resourcemessages.png)
 * Figure: Overview of the resource messages between the Application driver and the Energy app *

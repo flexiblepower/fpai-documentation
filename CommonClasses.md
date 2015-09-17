@@ -1,7 +1,7 @@
 # 4. Common classes and interfaces
 
 ## Measurables
-In the FPAI there are several interfaces working with physical quantities. For all of these quantities there are multiple units you could use: seconds, minutes, hours, joules, kilowatt hours... One programmer might prefer working with joules while another might prefer working with kilowatt hours. In order to prevent confusion and cumbersome manual conversion we have adopted the `javax.measure` packages from the [JScience](http://jscience.org) project. These packages provide classes and interfaces which combine numbers and units in a *measurable* object. These objects are so commonly used in the FPAI that they are part of the `flexiblepower.api` bundle.
+In the EF-Pi there are several interfaces working with physical quantities. For all of these quantities there are multiple units you could use: seconds, minutes, hours, joules, kilowatt hours... One programmer might prefer working with joules while another might prefer working with kilowatt hours. In order to prevent confusion and cumbersome manual conversion we have adopted the `javax.measure` packages from the [JScience](http://jscience.org) project. These packages provide classes and interfaces which combine numbers and units in a *measurable* object. These objects are so commonly used in the EF-Pi that they are part of the `flexiblepower.api` bundle.
 
 The package provides a set of [SI-units](http://en.wikipedia.org/wiki/International_System_of_Units) (such as second and joule) and NonSI-units (such as hour and Kilowatt hour). Measurables are typed with the generic `Measurable` interface.
 
@@ -28,7 +28,7 @@ double seconds = Measure.valueOf(1, HOUR).doubleValue(SECOND);
 
 ## TimeUtil
 
-The Java API provides a `Date` class to represent a time. Since we work a lot with Measurable<Duration> in the FPAI, there is a utility class called `TimeUtil` which provides some methods for combining the two.
+The Java API provides a `Date` class to represent a time. Since we work a lot with Measurable<Duration> in the EF-Pi, there is a utility class called `TimeUtil` which provides some methods for combining the two.
 
 ```java
 Date now = new Date();
@@ -38,7 +38,7 @@ Date oneHourInThePast = TimeUtil.subtract(now, Measure.valueOf(1, HOUR));
 Measurable<Duration> twoHours = TimeUtil.difference(oneHourInThePast, oneHourInTheFuture);
 ```
 
-**Note:** as you will read in the TimeSource section we don't recommand using `new Date()` in the FPAI. This is just for demonstration purposes.
+**Note:** as you will read in the TimeSource section we don't recommand using `new Date()` in the EF-Pi. This is just for demonstration purposes.
 
 ## Commodity
 

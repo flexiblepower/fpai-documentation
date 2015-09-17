@@ -2,7 +2,7 @@
 
 This chapter will give a short step-by-step introduction to developing a Resource Driver, Resource Manager, an Energy App and a widget. For this example we will assume a buffer/storage appliance, in this case a battery and a dummy energy app which takes a simple decision on when to start charging the battery. We will start by getting the development environment up and running.
 
-Code blocks are used to show some source code. All source code is also provided in the zip file. Please note that sometimes lines of code are wrapped in this document. The complete source code can be found in the fpai-examples.zip file
+Code blocks are used to show some source code. All source code is also provided in the zip file. Please note that sometimes lines of code are wrapped in this document. The complete source code can be found in the EF-Pi-examples.zip file
 
 ## Workspace structure
 Bndtools projects are based upon standard Eclipse Java projects.

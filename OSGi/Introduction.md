@@ -6,7 +6,7 @@ The [Open Service Gateway Initiative](http://www.osgi.org/Main/HomePage) (OSGi f
 
 **Figure: Overview of the OSGi framework**
 
-As can be seen in this image, OSGi runs on a Java Virtual Machine and can be viewed as an operating system for that machine. It handle installation and removal of applications, provides parts to make sure that components can communicate (through a service layer) and it handles security very well. This model has been extended for the FPAI, where we provide more standardized API's and components for easy development of smart energy applications
+As can be seen in this image, OSGi runs on a Java Virtual Machine and can be viewed as an operating system for that machine. It handle installation and removal of applications, provides parts to make sure that components can communicate (through a service layer) and it handles security very well. This model has been extended for the EF-Pi, where we provide more standardized API's and components for easy development of smart energy applications
 
 ## This chapter
 

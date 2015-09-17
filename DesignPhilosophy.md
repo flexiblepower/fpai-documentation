@@ -42,9 +42,9 @@ Now when I create an implementation of this service, the implementation can be m
 
 ## Thread separation
 
-When calling functions directly of components from other bundles, you give control of your thread to that other bundle. In many cases this is not a big issue, but in a more complex system such as the FPAI, we have run into trouble when the smart energy application does a lot of calculations based on an update from the driver. Then you want to make sure that the driver can still function and doesn't have to wait for the messages to be handled.
+When calling functions directly of components from other bundles, you give control of your thread to that other bundle. In many cases this is not a big issue, but in a more complex system such as the EF-Pi, we have run into trouble when the smart energy application does a lot of calculations based on an update from the driver. Then you want to make sure that the driver can still function and doesn't have to wait for the messages to be handled.
 
-In the FPAI, the messaging framework and the use of scheduling in the `FlexiblePowerContext` makes sure that each bundle has its own thread. When a bundle then makes the mistake of creating a long-lived task that doesn't return, the scheduling for all the other bundles is not affected and in the management view you can see which thread has stalled. 
+In the EF-Pi, the messaging framework and the use of scheduling in the `FlexiblePowerContext` makes sure that each bundle has its own thread. When a bundle then makes the mistake of creating a long-lived task that doesn't return, the scheduling for all the other bundles is not affected and in the management view you can see which thread has stalled. 
 
 ## Immutable objects
 

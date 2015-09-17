@@ -170,7 +170,7 @@ The `AbstractResourceDriver` is parameterized with the types `BatteryState` and 
 
 Why Runnable needs to be implemented will be explained later on in this section.
 
-The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the FPAI platform. The `@Component` annotation has three attributes:
+The `BatterySimulation` class is annotated with an `@Component` annotation from bndtools. This makes this class available as a component on the EF-Pi platform. The `@Component` annotation has three attributes:
 * The `designateFactory` attribute has `Config.class` as its value. This means that whenever a new `Config` is saved a new `BatterySimulation` will be started.
 * The `provide` attribute indicates how this component should be registered in OSGi’s registry; in this case as a `EndPoint.class`.
 * The `immediate` attribute indicates that the component should be activated immediately.
@@ -229,7 +229,7 @@ public void setSchedulerService(ScheduledExecutorService schedulerService) {
 }
 ```
 
-As is explained in the comment section of the code snippet this reference is used to schedule tasks on the FPAI platform.
+As is explained in the comment section of the code snippet this reference is used to schedule tasks on the EF-Pi platform.
 
 The next fragment shows the specific private members of the `BatterySimulation` class.
 

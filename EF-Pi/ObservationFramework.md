@@ -1,8 +1,8 @@
 # Observation Framework
 
-To be able to monitor systems connected to the FPAI, an observation framework has been introduced. This framework makes it possible to add software components that can publish or subscribe to observations of a certain type within a single FPAI node.
+To be able to monitor systems connected to the EF-Pi, an observation framework has been introduced. This framework makes it possible to add software components that can publish or subscribe to observations of a certain type within a single EF-Pi node.
 
-There are two roles defined in this framework; the `ObservationProvider` and the `ObservationConsumer`. These roles can be filled by any component that is an application on top of FPAI. See this figure for an overview.
+There are two roles defined in this framework; the `ObservationProvider` and the `ObservationConsumer`. These roles can be filled by any component that is an application on top of EF-Pi. See this figure for an overview.
 
 ![Overview of the Observation Framework](Observation-Scope.png)
 
@@ -12,7 +12,7 @@ The concept is similar to a [publish/subscribe patter](http://en.wikipedia.org/w
 
 ## Observer vs. Observable
 
-There is an important distinction between the observer and the observable. The monitoring framework in FPAI will try to facilitate the two concepts. Observations are made by observers (sensors). Observations may be provided with an identification of the observer (sensor), e.g. in a straightforward triple of: timestamp, sensor-id, value. Attribution of a certain observation to an attribute of an observable object may be done in ‘central’ processing.
+There is an important distinction between the observer and the observable. The monitoring framework in EF-Pi will try to facilitate the two concepts. Observations are made by observers (sensors). Observations may be provided with an identification of the observer (sensor), e.g. in a straightforward triple of: timestamp, sensor-id, value. Attribution of a certain observation to an attribute of an observable object may be done in ‘central’ processing.
 
 ## Observation object
 

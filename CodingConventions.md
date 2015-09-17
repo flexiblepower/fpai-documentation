@@ -1,6 +1,6 @@
 # Coding Conventions
 
-The coding conventions for the FPAI projects are captured in the project settings, which provide a Eclipse formatter (e.g. see [fpai.api formatter settings](https://github.com/flexiblepower/fpai-core/blob/development/flexiblepower.api/.settings/org.eclipse.jdt.core.prefs)) and some save actions (e.g. see [fpai.api save actions settings](https://github.com/flexiblepower/fpai-core/blob/development/flexiblepower.api/.settings/org.eclipse.jdt.ui.prefs)). A summary of the conventions:
+The coding conventions for the EF-Pi projects are captured in the project settings, which provide a Eclipse formatter (e.g. see [EF-Pi.api formatter settings](https://github.com/flexiblepower/EF-Pi-core/blob/development/flexiblepower.api/.settings/org.eclipse.jdt.core.prefs)) and some save actions (e.g. see [EF-Pi.api save actions settings](https://github.com/flexiblepower/EF-Pi-core/blob/development/flexiblepower.api/.settings/org.eclipse.jdt.ui.prefs)). A summary of the conventions:
 
 * Use 4 spaces for indentation.
 * Use indentation for each new block of code (e.g. class, method, if statement) except in the switch body (the case statement is on the same level, after the case statement do indent).

@@ -1,7 +1,7 @@
 # Release Notes
-This version, 14.10, features a number of improvements over the previous version of the FPAI specification: version 13.10.
+This version, 14.10, features a number of improvements over the previous version of the EF-Pi specification: version 13.10.
 
-To begin with, FPAI has been updated to be able to deal with other commodities besides electricity. Flexibility in terms of gas and heat can now also be expressed.
+To begin with, EF-Pi has been updated to be able to deal with other commodities besides electricity. Flexibility in terms of gas and heat can now also be expressed.
 
 Secondly, more explicit communication patterns have been added to prevent differences in interpretation from the energy application and the appliance driver.
 

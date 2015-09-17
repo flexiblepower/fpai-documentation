@@ -56,7 +56,7 @@ Please note that the `shutdown`, `shutdownNow` and `awaitTermination` methods wi
 
 ### TimeUtil
 
-Since timestamps (using `Date` objects) and duration (using `Measurable` objects) are a central part of the FPAI framework, the API also provides a `TimeUtil` class to combine these two.
+Since timestamps (using `Date` objects) and duration (using `Measurable` objects) are a central part of the EF-Pi framework, the API also provides a `TimeUtil` class to combine these two.
 
 ```java
 Date now = timeService.getTime()

@@ -3,7 +3,7 @@
 In this tutorial we will explain how you to set up your development environment for creating OSGi applications.
 
 ## Installing the Java Development Kit
-First of all, the Java Development Kit (a.k.a. the JDK) needs to be installed. The FPAI is developed in Java  version 1.6 (also refered to as version 6), so at least version 1.6 of the JDK needs to be present. Later versions also work fine, so you can just install the latest version for your operating system.
+First of all, the Java Development Kit (a.k.a. the JDK) needs to be installed. The EF-Pi is developed in Java  version 1.6 (also refered to as version 6), so at least version 1.6 of the JDK needs to be present. Later versions also work fine, so you can just install the latest version for your operating system.
 
 To check if you have installed the JDK you can execute the command `javac -version` on the command line. Windows users can access the command line through Start menu, press Run, type `cmd` and click the OK button. If the JDK is installed you should see the version number. If the JDK is not installed you should get a warning indicating that the command could not be found.
 
@@ -15,7 +15,7 @@ sudo apt-get install openjdk-7-jdk
 ```
 
 ## Installing Eclipse
-The preferred IDE for developing apps for FPAI is Eclipse, currently at version Luna. The latest version of Eclipse can be downloaded from [http://www.eclipse.org/downloads/](http://www.eclipse.org/downloads/). The Standard Eclipse distribution or the Eclipse IDE for Java Developers version is preferred. Be careful to select the right version for your platform. Eclipse is provided as a zip archive and it doesn't have an installer. Just extract Eclipse to a location which is convenient for you.
+The preferred IDE for developing apps for EF-Pi is Eclipse, currently at version Luna. The latest version of Eclipse can be downloaded from [http://www.eclipse.org/downloads/](http://www.eclipse.org/downloads/). The Standard Eclipse distribution or the Eclipse IDE for Java Developers version is preferred. Be careful to select the right version for your platform. Eclipse is provided as a zip archive and it doesn't have an installer. Just extract Eclipse to a location which is convenient for you.
 
 For more information see [http://www.eclipse.org](http://www.eclipse.org "Eclipse website").
 

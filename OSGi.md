@@ -5,9 +5,9 @@
 
 OSGi (Open Service Gateway initiative) is a specification for a service platform that enables a dynamic component model in Java. This means it is a layer on top of Java, that makes it possible to register and use bundles of modules and services. This makes separation of responsibilities easy and allows for separation of the API and it's implementation in compiled packages.
 
-This page briefly describes all the necessary concepts which are required to start developing for the FPAI. There are of course other resources which describe OSGi in much more detail.
+This page briefly describes all the necessary concepts which are required to start developing for the EF-Pi. There are of course other resources which describe OSGi in much more detail.
 
-The FPAI runs on top of the Apache Felix OSGi framework. For developing we recommend using the Apache Felix Web Console. For development we use Eclipse in combination with Bndtools.
+The EF-Pi runs on top of the Apache Felix OSGi framework. For developing we recommend using the Apache Felix Web Console. For development we use Eclipse in combination with Bndtools.
 
 ## Your workspace
 If you followed the steps in [[Setting up your IDE|SettingUpYourIDE]], you should now have Eclipse with the Bndtools perspective.
@@ -57,8 +57,8 @@ In the [[Previous Chapter|SettingUpYourIDE]] you have installed Bndtools. Bndtoo
 ## Bnd Repositories
 Bndtools features a pluggable repository model for bundles, that may be referenced at build-time and also used to satisfy runtime dependencies. In eclipse it shows a Repositories view, which shows which bundles are available for your convienience. Bndtools automatically calculates imports and resolves dependensies using the repositories.
 
-## Running the FPAI
-FPAI can be run from Eclipse using a `.bndrun` file, typically placed in the `cnf` folder. It is advised to have a `bndrun` file for each use case, e.g. running all integration tests, just testing your new code or running only the core. In the `bndrun` file you specify which framework to use, the Java EE version, and most importantly, which bundles are required to run under Run Requirements. Bndtools then can resolve which bundles are needed in run bundles. Make sure you add all the required bundles under Run Requirements and make sure it resolves, or else running FPAI will fail.
+## Running the EF-Pi
+EF-Pi can be run from Eclipse using a `.bndrun` file, typically placed in the `cnf` folder. It is advised to have a `bndrun` file for each use case, e.g. running all integration tests, just testing your new code or running only the core. In the `bndrun` file you specify which framework to use, the Java EE version, and most importantly, which bundles are required to run under Run Requirements. Bndtools then can resolve which bundles are needed in run bundles. Make sure you add all the required bundles under Run Requirements and make sure it resolves, or else running EF-Pi will fail.
 
 ## The Apache Felix Web Console
 ![The Apache Felix Web Console](felix_config_mgr.png)
