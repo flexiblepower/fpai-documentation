@@ -65,7 +65,7 @@ Now it is time to start Eclipes. The first thing Eclipse asks is the location of
 
 When you start Eclipse for the first time it will show you the Welcome page. You can close it.
 
-**Tip:** Are you using a lot of workspaces? When Eclipse starts, it asks you which workspace you want to use. Eclipse only remembers the last five workspaces you have used. Once you have opened up a workspace, you can increase this number by going to 'Window', 'Preferences' and than 'General', 'Startup and Shutdown'. Here you can manage the known workspaces and change the number of recent workspaces to remember.
+**Tip:** Are you using a lot of workspaces? When Eclipse starts, it asks you which workspace you want to use. Eclipse only remembers the last five workspaces you have used. Once you have opened up a workspace, you can increase this number by going to 'Window', 'Preferences' and then 'General', 'Startup and Shutdown'. Here you can manage the known workspaces and change the number of recent workspaces to remember.
 
 ## Installing Bndtools
 The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and then to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.
@@ -74,7 +74,7 @@ For more information see [http://bndtools.org](http://bndtools.org). There is al
 
 
 ## Importing the projects
-The repository you checked out already contains some projects. We have to tell Eclipse to search for those repositories first. You can do this by going to `File` and than `Import`. Select `Existing Projects into Workspace` from the `General` directory and click the `Next` button.
+The repository you checked out already contains some projects. We have to tell Eclipse to search for those repositories first. You can do this by going to `File` and then `Import`. Select `Existing Projects into Workspace` from the `General` directory and click the `Next` button.
 
 Click on the `Browse` button on top of the screen. It will automatically go to the your workspace directory. Click `OK` to select your workspace directory. Select all the projects and click `Finish`. Eclipse will add the projects to the Package explorer on the left of the screen.
 
