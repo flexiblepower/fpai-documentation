@@ -1,6 +1,6 @@
 # Design Philosophy
 
-To design a distributed runtime, where on each node you can dynamically install new components, it is very important to have a clear design strategy. Different component should not interfere with each other and the whole runtime should be as robust as possible. To achieve this, a couple of strategies have been employed.
+To design a distributed runtime, where on each node you can dynamically install new components, it is very important to have a clear design strategy. Different components should not interfere with each other and the whole runtime should be as robust as possible. To achieve this, a couple of strategies have been employed.
 
 ## Component separation with clear API
 
