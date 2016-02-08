@@ -64,7 +64,7 @@ Let's consider an example configuration to demonstrate how these components can 
 
 [![](component_overview.png)](https://raw.githubusercontent.com/wiki/flexiblepower/EF-Pi-core/component_overview.png)
 
-**Figure: Example EF-Pi configuration. Green blocks represent OSGi components. Click [here](https://raw.githubusercontent.com/wiki/flexiblepower/EF-Pi-core/component_overview.png) for the full version.**
+**Figure: Example EF-Pi configuration. Green blocks represent OSGi components. Click [here](component_overview.png) for the full version.**
 
 The image above shows the example configuration. All the green blocks represent OSGi components. The first line in the green blocks state the name of the component. Under the name is the configuration of the component.
 
