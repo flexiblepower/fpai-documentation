@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Over the years a lot of different *Demand Side Management* (DSM) approaches have been developed. Unfortunately these DSM approaches are not interoperable. A similar issue can be identified on the appliance level. Appliances provide the flexibility that is being exploited by DSM. To begin with there a lot of different appliances (washing machines, Combined Heat Power Systems, PV panels, fridges, etc.). They also use different protocols for communication (Zigbee, Z-wave, WiFi, PLC, etc.).
+Over the years a lot of different *Demand Side Management* (DSM) approaches have been developed. Unfortunately these DSM approaches are not interoperable. A similar issue can be identified on the appliance level. Appliances provide the flexibility that is being exploited by DSM. To begin with there are a lot of different appliances (washing machines, Combined Heat Power Systems, PV panels, fridges, etc.). They also use different protocols for communication (Zigbee, Z-wave, WiFi, PLC, etc.).
 
 All this variety on both the DSM and appliance level presents *Energy Management Systems* (EMS) with a big challenge. This challenge is depicted below.
 
@@ -12,7 +12,7 @@ Nowadays most EMS’es are tightly coupled to a particalar DSM approach. This re
 
 The Energy Flexibility Platform & Interface (EF-Pi) is a runtime environment where on one side smart grid applications can be deployed and on the other side appliances can be connected. The EF-Pi provides interfaces to interact with the environment and connect devices and smart grid apps. Part of the interface definitions are the Control Spaces and Allocations.
 
-EF-Pi aims to create an interoperable platform that is able to connect to a variety of appliances and support a host of DSM approaches. This way the EMS hardware does not need to be changed when a consumers switches from one service to another. At the same time the Energy Flexibility Platform & Interface makes it easier for service providers to introduce new services, since they do not have to provide the EMS hardware to their consumers to go with it.
+EF-Pi aims to create an interoperable platform that is able to connect to a variety of appliances and support a host of DSM approaches. This way the EMS hardware does not need to be changed when a consumer switches from one service to another. At the same time the Energy Flexibility Platform & Interface makes it easier for service providers to introduce new services, since they do not have to provide the EMS hardware to their consumers to go with it.
 
 ## High-level design
 ![](hourglass.png)
@@ -70,9 +70,9 @@ The image above shows the example configuration. All the green blocks represent 
 
 An important part is the *Energy Flexibility Interface* (EFI), for which we reserved the next chapter. This is the interface between an Energy App, like the PowerMatcher, and Resources, which makes the flexibility possible.
 
-Below the *Energy Flexibility Interface* (EFI) we can see all the device specific components. We see that the *Miele App* provides two types of Resource Managers, two types of Resource Drivers and a Protocol Driver. The PV Panel Simulation does not have a Protocol Driver, since the simulation does not have to communicate with a device. The Pv Pavel Simulation is connected with a generic Resource Manager for uncontrolled appliances. Above the Resource Abstract Layer we can see the PowerMatcher App, which communicates with the three Resource Managers.
+Below the *Energy Flexibility Interface* (EFI) we can see all the device specific components. We see that the *Miele App* provides two types of Resource Managers, two types of Resource Drivers and a Protocol Driver. The PV Panel Simulation does not have a Protocol Driver, since the simulation does not have to communicate with a device. The PV Pavel Simulation is connected with a generic Resource Manager for uncontrolled appliances. Above the Resource Abstract Layer we can see the PowerMatcher App, which communicates with the three Resource Managers.
 
 Communication wiring is done using a messaging abstraction, implemented in the `org.flexiblepower.messaging` package. This is implemented using annotations:
-Any component, like an implementation of a ResourceDriver or ResourceManager, can have an annotation `@Ports` which can contain multiple `@Port` definitions, which have a `name`, `cardinality`, `sends`, and `accepts` parameter; the latter specify which objects are accepted by this object. They then must implement a MessageHandler that accepts the object(s). A cardinality can be given to specify wheter it support a single or multiple connections. Exact details are specified in the tutorial that follows later. Note that the usage of the `ResourceId` property is depricated since the 14.10 release.
+Any component, like an implementation of a ResourceDriver or ResourceManager, can have an annotation `@Ports` which can contain multiple `@Port` definitions, which have a `name`, `cardinality`, `sends`, and `accepts` parameter; the latter specify which objects are accepted by this object. They then must implement a MessageHandler that accepts the object(s). A cardinality can be given to specify whether it supports a single or multiple connections. Exact details are specified in the tutorial that follows later. Note that the usage of the `ResourceId` property is depricated since the 14.10 release.
 
 You will also notice that there are several widgets. Every component in the system can provide a widget which is shown in the main page of the dashboard.
