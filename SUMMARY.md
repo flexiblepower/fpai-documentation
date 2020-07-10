@@ -27,4 +27,5 @@
   * [Energy App](EnergyApp.md)
   * [Developing a Widget](Widget.md)
   * [Running the EF-Pi examples](RunningExamples.md)
+  * [Building EF-Pi](Building.md)
 * [Glossary](EF-Piglossary.md)

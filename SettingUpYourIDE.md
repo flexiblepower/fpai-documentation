@@ -68,7 +68,9 @@ When you start Eclipse for the first time it will show you the Welcome page. You
 **Tip:** Are you using a lot of workspaces? When Eclipse starts, it asks you which workspace you want to use. Eclipse only remembers the last five workspaces you have used. Once you have opened up a workspace, you can increase this number by going to 'Window', 'Preferences' and then 'General', 'Startup and Shutdown'. Here you can manage the known workspaces and change the number of recent workspaces to remember.
 
 ## Installing Bndtools
-The Eclipse plugin for bnd, called Bndtools, can be obtained from the Eclipse Marketplace. In Eclipes, go to `Help` and then to `Eclipse Marketplace...`. Search for `Bndtools` and click the `Install` button. During installation you will get a warning complaining about unsigned content. You may ignore that warning. After installation, restart Eclipse.
+The Eclipse plugin for bnd, called Bndtools, must be installed first. EF-Pi currently works best with **Bndtools version 3.5.0**. 
+
+In Eclipes, go to `Help` and then to `Install New Software...`. Click on the `Add...` button, and fill in the name `Bndtools 3.5.0` and the Location `https://dl.bintray.com/bndtools/bndtools/3.5.0/`. Then mark Bndtools for installation and click the `Next >` button. Follow the installation wizard in order to install Bndtools.
 
 For more information see [http://bndtools.org](http://bndtools.org). There is also a general tutorial available at [http://bndtools.org/tutorial.html](http://bndtools.org/tutorial.html).
 
